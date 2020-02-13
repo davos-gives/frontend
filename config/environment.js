@@ -1,7 +1,10 @@
 'use strict';
 
+const { MIRAGE_SCENARIO } = process.env;
+
 module.exports = function(environment) {
   let ENV = {
+    MIRAGE_SCENARIO,
     modulePrefix: 'davos-frontend',
     environment,
     rootURL: '/',
