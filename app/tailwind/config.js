@@ -110,11 +110,11 @@ module.exports = {
         200: '#e9d8fd',
         300: '#d6bcfa',
         400: '#b794f4',
-        500: '#9f7aea',
+        500: '#6d3eff',
         600: '#805ad5',
         700: '#6b46c1',
         800: '#553c9a',
-        900: '#44337a',
+        900: '#3c2f54',
       },
       pink: {
         100: '#fff5f7',
@@ -692,5 +692,7 @@ module.exports = {
     transitionDuration: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/custom-forms')
+  ],
 }
