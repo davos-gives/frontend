@@ -13,8 +13,12 @@ jobs:
     - uses: mydea/actions-ember-testing@v2
     - name: Install dependencies
       run: yarn install
-    - name: Run tests
-      run: yarn test
+    - name: Tests
+        uses: percy/exec-action@v0.1.2
+        with:
+          command: "yarn test"
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
     - name: Lint JS
       run: yarn lint:js
     - name: Lint HBS
