@@ -1,4 +1,5 @@
 /*global module*/
+/* global require */
 
 module.exports = {
   prefix: '',
