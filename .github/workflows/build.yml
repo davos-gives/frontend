@@ -14,11 +14,11 @@ jobs:
     - name: Install dependencies
       run: yarn install
     - name: Tests
-        uses: percy/exec-action@v0.1.2
-        with:
-          command: "yarn test"
-        env:
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      uses: percy/exec-action@v0.1.2
+      with:
+        command: "yarn test"
+      env:
+        PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
     - name: Lint JS
       run: yarn lint:js
     - name: Lint HBS
