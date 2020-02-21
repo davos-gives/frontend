@@ -19,18 +19,12 @@
   transition: 0.2s ease all;
 }
 
-.focused .label {
-  top: -12px;
+.focused .label, input:valid ~ label {
+  top: -10px;
   background-color: #fff;
-  padding: 0px 3px;
-  margin-left: 1rem;
-}
-
-input:valid ~ label {
-  top: -10px!important;
-  background-color: #fff;
-  padding: 0px 3px;
-  margin-left: 1rem;
+  padding: 0 5px;
+  margin-left: 0.9rem;
+  color: #6d3eff;
 }
 
 .focused .input, .input:valid {
