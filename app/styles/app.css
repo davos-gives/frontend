@@ -5,3 +5,34 @@
 
 @import "tailwindcss/utilities";
 @import "utilities.css";
+
+.input {
+  display: block;
+}
+
+.input:focus { outline: none }
+
+.label {
+  position: absolute;
+  left: 0px; 
+  top: 15px;
+  transition: 0.2s ease all;
+}
+
+.focused .label {
+  top: -12px;
+  background-color: #fff;
+  padding: 0px 3px;
+  margin-left: 1rem;
+}
+
+input:valid ~ label {
+  top: -10px!important;
+  background-color: #fff;
+  padding: 0px 3px;
+  margin-left: 1rem;
+}
+
+.focused .input, .input:valid {
+  border-color: #6d3eff;
+}
