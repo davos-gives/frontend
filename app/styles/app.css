@@ -30,3 +30,7 @@
 .focused .input, .input:valid {
   border-color: #6d3eff;
 }
+
+input:required {
+  box-shadow: none;
+}
