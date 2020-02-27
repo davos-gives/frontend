@@ -25,12 +25,18 @@
   padding: 0 5px;
   margin-left: 0.9rem;
   color: #6d3eff;
+  font-weight: 600;
 }
 
 .focused .input, .input:valid {
   border-color: #6d3eff;
+  font-weight: 600;
 }
 
 input:required {
   box-shadow: none;
+}
+
+.bg-purple-gradient {
+  background: linear-gradient(180deg, #411E82 0%, #6D3EFF 100%);
 }
