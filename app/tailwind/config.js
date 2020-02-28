@@ -602,6 +602,11 @@ module.exports = {
       '700': '700ms',
       '1000': '1000ms',
     },
+    extend: {
+      transitionProperty: {
+        'width': 'width',
+      }
+    }
   },
   variants: {
     accessibility: ['responsive', 'focus'],
@@ -695,6 +700,9 @@ module.exports = {
   },
   corePlugins: {},
   plugins: [
-    require('@tailwindcss/custom-forms')
-  ],
+    require('@tailwindcss/custom-forms'),
+    require('@tailwindcss/ui')({ 
+      layout: 'sidebar',
+    })
+  ]
 }

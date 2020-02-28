@@ -28,8 +28,10 @@
         data-test-id="campaign image">
     </div>
     {{else}}
-    <div class="image w-full h-48 bg-yellow-500 {{if this.isEditing "z-20 relative"}} flex"
+    <div class="w-full {{if this.isEditing "z-20 relative"}} flex text-yellow-400"
       data-test-id="default image">
+      
+      {{svg-jar this.defaultImage class="object-cover fill-current"}}
     </div>
     {{/if}}
     {{/link-to}}
@@ -37,13 +39,13 @@
     <div
       class="px-10 py-4 {{if this.isEditing "relative z-20"}} bg-white {{if updated "border-bottom-green" "mb-7px"}}">
       <div class="pb-8 border-grey-light border-solid border-b bg-white">
-        <p class="font-bold text-grey-card mt-4 capitalize text-lg" style="height: 30px;"
+        <p class="font-bold text-gray-500 mt-4 capitalize text-lg" style="height: 30px;"
           data-test-id="organization name">
-          Barks & Meows Shelter
+          {{@campaign.name}}
         </p>
-        <p class="font-light text-grey-card" data-test-id="campaign name">
-          Sample
-        </p>
+        {{!-- <p class="font-light text-grey-card" data-test-id="campaign name">
+          {{campaig}}
+        </p> --}}
       </div>
       <div class="mt-4 flex">
         <p

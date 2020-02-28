@@ -13,7 +13,7 @@ export default class SignupController extends Controller {
   }
 
   @action
-  validate({ key, newValue, oldValue, changes, content }) {
+  validate() {
     return true
   }
 }

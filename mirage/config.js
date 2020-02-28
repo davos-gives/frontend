@@ -5,6 +5,9 @@ export default function () {
   this.post('/users')
 
   this.get('/organizations');
-  this.post('/organizations')
+  this.post('/organizations');
+
+  this.get('/campaigns');
+  this.get('/campaigns/:id');
 
 }

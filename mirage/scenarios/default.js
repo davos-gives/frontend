@@ -18,5 +18,9 @@ export default function(server) {
     scenario(server);
   }
 
+  server.create('campaign', {name: "Help us find a new home", defaultImage: 1});
+  server.create('campaign', {name: "Cat food for cool cats", defaultImage: 2});
+  server.create('campaign', {name: "Dog food from dudes", defaultImage: 3});
+
   // plus whatever default scenario code you want
 }

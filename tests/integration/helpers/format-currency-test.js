@@ -12,6 +12,6 @@ module('Integration | Helper | format-currency', function(hooks) {
 
     await render(hbs`{{format-currency inputValue}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.equal(this.element.textContent.trim(), '$12.34');
   });
 });
