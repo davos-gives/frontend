@@ -1,205 +1,116 @@
+<div>
+  <p class="p-1 text-sm text-white font-bold mt-8 pt-3 uppercase">Welcome back, Ian!</p>
+  <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you've issued<span
+      class="text-white font-bold text-2xl" data-test-id="total donation amount"> 43 receipts</span> with
+    Davos!
+  </p>
+</div>
+<p class="p-1 text-xl pb-8 text-white font-bold mt-8 pt-3 capitalize">Your campaigns</p>
+<div class="bg-white h-32 border border rounded-lg shadow-lg mr-24 flex items-center">
+  <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap flex-1 px-8">
+    <div class="ml-4 mt-4 self-center flex justify-between">
 
-<div class="h-screen flex overflow-hidden bg-gray-100">
-  <div class="flex">
-     <AnimatedContainer class="bg-white flex-shrink-0 flex overflow-hidden">
-    {{#animated-if this.opened use=this.transition duration=300}}
-      <div class="flex flex-col ">
 
-      <div class="flex items-center h-16 flex-shrink-0 px-6  justify-between">
-        {{svg-jar "Davos_logo_fullcolour" class="w-32 mr-12"}}
-        <button type="button" {{on "click" (fn this.shrinkMenu)}}>
-          <svg class="h-6 w-6 cursor-pointer" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-          </svg>
-        </button>
-        
+      <div class="flex-grow">
+        <label for="campaign" class="block text-normal font-medium leading-5 text-gray-700">Campaign</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            {{svg-jar "Search" class="h5 w-5 fill-current"}}
+          </div>
+          <input id="campaign" class="form-input block w-full pl-10 sm:text-sm sm:leading-5"
+            placeholder="Campaign name" />
+        </div>
       </div>
-      <div class="h-0 flex-1 flex flex-col overflow-y-auto">
-        <nav class="flex-1 px-4 py-4 bg-white">
-          <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
-             {{svg-jar "Home" class="w-4 fill-current mr-3"}}
-            Receipt Centre
-          </a>
-           <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
-             {{svg-jar "Receipts" class="w-4 fill-current mr-3"}}
-            Receipt Builder
-          </a>
-          <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
-             {{svg-jar "Account" class="w-4 fill-current mr-3"}}
-            Account
-          </a>
-        </nav>
-      </div>
-      </div>
-
-    {{else}}
-        <div class="flex flex-col bg-white">
-
-      <div class="flex flex-col items-center h-16 flex-shrink-0 px-3 bg-white justify-between pt-4 text-purple-900">
-        {{svg-jar "Davos_icon" class="w-10 fill-current"}}
-          <svg class="h-6 w-6 cursor-pointer" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-        </svg>
-      </div>
-      <div class="h-0 flex-1 flex flex-col overflow-y-auto">
-        <nav class="flex-1 px-4 py-4 bg-white">
-          <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold bg-white">
-             {{svg-jar "Home" class="w-4 fill-current"}}
-          </a>
-           <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
-             {{svg-jar "Receipts" class="w-4 fill-current"}}
-          </a>
-          <a href="#" class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
-             {{svg-jar "Account" class="w-4 fill-current"}}
-          </a>
-        </nav>
-         <div class="bg-white flex justify-center pb-4">
-          <button type="button" {{on "click" (fn this.growMenu)}}>
-            <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24" >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-            </svg>
+      <div class="w-1/4 mx-4">
+        <label for="email" class="block font-medium leading-5 text-gray-700">Eligable Amount</label>
+        <div class="mt-1 flex rounded-md">
+          <div class="relative flex-grow focus-within:z-10">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+              {{svg-jar "Money" class="h5 w-5 fill-current " }}
+            </div>
+            <input id="email"
+              class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow-sm"
+              placeholder="100.00" />
+          </div>
+          <button type="button"
+            class="-ml-px relative inline-flex items-center px-4 py-2 text-sm leading-5 font-medium rounded-r-md text-gray-700">
+            /
+            <span class="ml-2">$100</span>
           </button>
         </div>
       </div>
+      <div class="flex-grow">
+        <label for="campaign" class="block text-normal font-medium leading-5 text-gray-700">Davos
+          Receipt</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            {{svg-jar "Search" class="h5 w-5 fill-current"}}
+          </div>
+          <input id="campaign" class="form-input block w-full pl-10 sm:text-sm sm:leading-5" placeholder="Default" />
+        </div>
       </div>
-  {{/animated-if}}
-  </AnimatedContainer>
-
+    </div>
+    <div class="ml-4 mt-4 flex-shrink-0">
+      <span class="inline-flex rounded-md shadow-sm">
+        <button type="button"
+          class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline">
+          Link Receipt
+        </button>
+      </span>
+    </div>
   </div>
-  <div class="flex flex-col w-0 flex-1 overflow-scroll">
-    <div class="bg-purple-gradient pb-64">
-        <div class="relative z-10 flex-shrink-0 flex h-16">
-      <button type="button" class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden">
-        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
-        </svg>
-      </button>
-      <div class="flex-1 px-4 flex justify-between">
-        <div class="flex-1 flex">
+</div>
+<div class="mt-16 flex justify-between mr-24">
+  {{#each @model.campaigns as |campaign|}}
+  <CampaignCard @campaign={{campaign}} />
+  {{/each}}
+</div>
+
+<p class="p-1 text-xl pb-2 text-gray-500 font-bold mt-8 pt-3 capitalize">Saved Receipts</p>
+<div class="mt-8 flex justify-between mr-24">
+  <div class="w-1/3">
+    <div class={{if this.isEditing "editing-overlay"}}></div>
+
+    {{!-- {{#if this.isEditing}}
+  <p class="absolute text-white z-30 ml-8 pl-4 cursor-pointer block -mt-10" {{action "focusOff"}}
+    data-test-id="go back">
+    <img src="/img/icons/ChevronWhite.svg" class="w-4 rotate-90" alt="back">
+    Go Back
+  </p>
+  {{/if}}
+
+  {{#if this.isEditing}}
+  <button class="rounded-full bg-yellow text-white font-thin py-2 px-4 rounded-full absolute z-30 block -mt-8"
+    {{action "saveRecurring"}} style="margin-left: 346px;" data-test-id="save">Save</button>
+  {{else}}
+  {{#if updated}}
+  <button class="rounded-full bg-green text-white font-thin py-2 px-4 rounded-full absolute block z-30 -mt-8"
+    style="margin-left: 312px;">Updated!</button>
+  {{/if}}
+  {{/if}} --}}
+
+    <div class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer bg-white">
+      <div class="w-full flex text-red-800 overflow-hidden h-40" data-test-id="default image">
+
+        {{svg-jar "Active_donation_bg3" class="object-cover fill-current h-full object-top -mt-1"}}
+      </div>
+      <div class="px-10 py-4 bg-white">
+        <div class="pb-8 border-grey-light border-solid border-b bg-white">
+          <p class="font-bold text-gray-500 mt-4 capitalize text-lg" data-test-id="organization name">
+            Default Template
+          </p>
+          <p class="font-light text-grey-card mb-4" data-test-id="campaign name">
+            Created on May 17th, 2020
+          </p>
         </div>
-        <div class="ml-4 flex items-center md:ml-6">
-          <div class="ml-3 relative">
-            <div>
-               <button type="button" {{on "click" this.toggleMenu}}
-                  class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize focus:outline-none active:outline-none">
-                  Ian Knauer
-                </button>
-            </div>
-            {{#animated-if this.subMenuOpen}}
-              <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg">
-                <div class="py-1 rounded-md bg-white shadow-xs">
-                  <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition ease-in-out duration-150">Sign out</a>
-                </div>
-              </div>
-            {{/animated-if}}
-          </div>
+        <div class="mt-4 flex">
+          <p class="text-2xl font-bold w-34 text-center align-top -mt-2 amount">
+          </p>
+          <span class="text-left font-sm capitalize text-grey-card-2" data-test-id="campaign frequency">
+            3 Campaigns
+          </span>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
     </div>
-    </div>
-    </div>
-    <main class="-mt-64">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="ml-12">
-           <div>
-          <p class="p-1 text-sm text-white font-bold mt-8 pt-3 uppercase">Welcome back, Ian!</p>
-            <p class="text-2xl text-white font-light pl-1 tracking-wide">This month you've issued<span
-            class="text-white font-bold text-2xl" data-test-id="total donation amount"> 43 receipts</span> with
-          Davos!
-        </p>
-      </div>
-          <p class="p-1 text-xl pb-8 text-white font-bold mt-8 pt-3 capitalize">Your campaigns</p>
-          <div class="bg-white h-32 border border rounded-lg shadow-lg mr-24 flex items-center">
-            <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap flex-1 px-8">
-              <div class="ml-4 mt-4 self-center flex justify-between">
-               
-
-                <div class="flex-grow">
-                  <label for="campaign" class="block text-normal font-medium leading-5 text-gray-700">Campaign</label>
-                  <div class="mt-1 relative rounded-md shadow-sm">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                      {{svg-jar "Search" class="h5 w-5 fill-current"}}
-                    </div>
-                    <input id="campaign" class="form-input block w-full pl-10 sm:text-sm sm:leading-5" placeholder="Campaign name" />
-                  </div>
-                </div>
-
-
-
-
-                <div class="w-1/4 mx-4">
-                  <label for="email" class="block font-medium leading-5 text-gray-700">Eligable Amount</label>
-                  <div class="mt-1 flex rounded-md">
-                    <div class="relative flex-grow focus-within:z-10">
-                      <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                        {{svg-jar "Money" class="h5 w-5 fill-current " }}
-                      </div>
-                      <input id="email" class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow-sm" placeholder="200.00" />
-                    </div>
-                    <button type="button" class="-ml-px relative inline-flex items-center px-4 py-2 text-sm leading-5 font-medium rounded-r-md text-gray-700">
-                      /
-                      <span class="ml-2">$230</span>
-                    </button>
-                  </div>
-                </div>
-
-                       <div class="flex-grow">
-
-                  <label for="campaign" class="block text-normal font-medium leading-5 text-gray-700">Davos Receipt</label>
-                  <div class="mt-1 relative rounded-md shadow-sm">
-                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                      {{svg-jar "Search" class="h5 w-5 fill-current"}}
-                    </div>
-                    <input id="campaign" class="form-input block w-full pl-10 sm:text-sm sm:leading-5" placeholder="Default" />
-                  </div>
-                </div>
-
-
-
-
-              </div>
-              <div class="ml-4 mt-4 flex-shrink-0">
-                <span class="inline-flex rounded-md shadow-sm">
-                  <button type="button" class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline">
-                    Link Receipt
-                  </button>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="mt-16 flex justify-between mr-24">
-            {{#each @model.campaigns as |campaign|}}
-              <CampaignCard @campaign={{campaign}}/>
-            {{/each}}
-         
-          </div>
-
-          <p class="p-1 text-xl pb-2 text-gray-500 font-bold mt-8 pt-3 capitalize">Saved Receipts</p>
-          <div class="mt-8 flex justify-between mr-24">
-          </div>
-        </div>
-        <section class="flex flex-wrap w-full mx-auto text-sm pt-8 container">
-          <div class="w-1/3 text-grey-dark border-grey-light border-solid border-t text-purple-footer py-8">
-          <p><span class="font-bold">©2020 Davos.gives</span> - All rights reserved.</p>
-        </div>
-        <div
-          class="w-1/3 text-grey-dark text-center border-grey-light border-solid border-t py-6 -py-1 flex justify-center">
-          <img src="/img/Davos_slogan.svg" class="w-32" alt="davos - give meaning">
-        </div>
-
-        <div class="w-1/3 text-right flex text-grey-dark border-grey-light border-solid border-t py-8 text-xs">
-          <p class="w-1/3">
-            Terms of Use
-          </p>
-          <p class="w-1/3">
-            Privacy Policy
-          </p>
-          <p class="w-1/3">
-            Cookie Policy
-          </p>
-        </div>
-      </section>
-    </div>
-  </main>
   </div>
 </div>

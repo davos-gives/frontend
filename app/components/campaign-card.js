@@ -6,8 +6,8 @@ export default class FormInputComponent extends Component {
   @tracked isEditing = false;
 
   get defaultImage() {
-    let { defaultImage } = this.args.campaign;
-    return `Active_donation_bg${defaultImage}`
+    let imageNumber = Math.floor(Math.random() * Math.floor(3)) + 1;
+    return `Active_donation_bg${imageNumber}`
   }
 
   @action

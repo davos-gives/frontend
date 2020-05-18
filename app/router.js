@@ -10,4 +10,5 @@ Router.map(function () {
   this.route('signup');
   this.route('create-organization');
   this.route('receipts');
+  this.route('donations');
 });

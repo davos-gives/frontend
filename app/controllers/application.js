@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-import { fadeIn, fadeOut } from 'ember-animated/motions/opacity'; 
+import { fadeIn, fadeOut } from 'ember-animated/motions/opacity';
 
 
 export default class IndexController extends Controller {

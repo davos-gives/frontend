@@ -1,0 +1,38 @@
+<section class="mt-8 w-full">
+  <div class="my-8 mx-auto w-1/2">
+    <h1 class="uppercase text-white text-base text-center mt-4">Search Receipts</h1>
+    {{input type="text" class="w-full border border-grey py-2 px-4 text-grey-dark rounded flex font-semibold mt-4 bg-grey-lightest" placeholder="Type in a donor's first or last name, receipt number or receipted amount" value=search}}
+  </div>
+</section>
+
+<div class="w-9/10 mt-8 shadow-lg rounded-lg bg-white mx-8 px-6 py-6 h flex h-55% flex-col">
+  <div class="flex my-2 pt-4 pb-2 px-4 rounded justify-around items-center">
+    <div class="capitalize text-gray-700 w-20 -ml-2 text-sm font-bold text-center">Issued Number</div>
+    <div class="capitalize text-gray-700 w-48 text-sm font-bold">Name</div>
+    <div class="capitalize text-gray-700 text-sm font-bold text-center">amount</div>
+    <div class="capitalize text-gray-700 text-sm font-bold text-center">Transaction Date</div>
+    <div class="capitalize text-gray-700 text-sm font-bold text-center"></div>
+  </div>
+  {{#animated-each this.model as |receipt|}}
+  <div class="flex my-2 py-6 bg-grey-lightest px-4 rounded justify-around items-center text-center group">
+    <div class="capitalize text-grey-darker w-12 text-center">{{receipt.receiptNumber}}</div>
+    <div class="capitalize text-grey-darker w-48 text-center flex items-center">
+      <span
+        class="text-sm bg-gray-300 w-8 h-8 mr-4 flex items-center justify-center rounded-full uppercase">{{icon-creator receipt.firstName}}{{icon-creator receipt.lastName}}</span>
+      <p class="capitalize">{{receipt.firstName}} {{receipt.lastName}}</p>
+    </div>
+    <div class="capitalize text-grey-darker w-12 text-center">{{format-currency receipt.paymentAmount}}</div>
+    <div class="capitalize text-grey-darker text-left">{{receipt.insertedAt}}</div>
+    <div class="capitalize text-grey-darker text-center">
+      <div class="justify-between flex group-hover:block w-12">
+        <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+          {{svg-jar "Download" class="h-full w-full fill-current"}}
+        </button>
+        <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+          {{svg-jar "Redo" class="h-full w-full fill-current"}}
+        </button>
+      </div>
+    </div>
+  </div>
+  {{/animated-each}}
+</div>

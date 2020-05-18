@@ -10,4 +10,6 @@ export default function () {
   this.get('/campaigns');
   this.get('/campaigns/:id');
 
+  this.get('/donations');
+  this.get('/donations/:id');
 }
