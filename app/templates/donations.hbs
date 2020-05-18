@@ -25,9 +25,10 @@
     <div class="capitalize text-grey-darker text-left">{{receipt.insertedAt}}</div>
     <div class="capitalize text-grey-darker text-center">
       <div class="justify-between flex group-hover:block w-12">
-        <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+        <a href={{receipt.url}} target="_blank"
+          class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
           {{svg-jar "Download" class="h-full w-full fill-current"}}
-        </button>
+        </a>
         <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
           {{svg-jar "Redo" class="h-full w-full fill-current"}}
         </button>

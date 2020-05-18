@@ -20,11 +20,11 @@
               {{svg-jar "Home" class="w-4 fill-current mr-3"}}
               Receipt Centre
             </LinkTo>
-            <a href="#"
-              class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
+            <LinkTo @route='receipts.new' class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none
+              transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
               {{svg-jar "Receipts" class="w-4 fill-current mr-3"}}
               Receipt Builder
-            </a>
+            </LinkTo>
             <LinkTo @route='donations'
               class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
               {{svg-jar "Account" class="w-4 fill-current mr-3"}}
@@ -49,14 +49,18 @@
         </div>
         <div class="h-0 flex-1 flex flex-col overflow-y-auto">
           <nav class="flex-1 px-4 py-4 bg-white">
-            <a href="#"
+            <LinkTo @route='index'
               class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold bg-white">
               {{svg-jar "Home" class="w-4 fill-current"}}
-            </a>
-            <a href="#"
+            </LinkTo>
+            <LinkTo @route='receipts.new'
               class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
               {{svg-jar "Receipts" class="w-4 fill-current"}}
-            </a>
+            </LinkTo>
+            <LinkTo @route='donations'
+              class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
+              {{svg-jar "Account" class="w-4 fill-current mr-3"}}
+            </LinkTo>
             <a href="#"
               class="group flex items-center px-2 py-3 text-sm leading-5 font-medium rounded-md focus:outline-none transition ease-in-out duration-150 text-gray-500 hover:text-purple-500 text-semibold">
               {{svg-jar "Account" class="w-4 fill-current"}}

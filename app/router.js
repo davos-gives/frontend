@@ -9,6 +9,9 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('signup');
   this.route('create-organization');
-  this.route('receipts');
+  this.route('receipts', function () {
+    this.route('new');
+    this.route('edit', { path: ':receipt_id/edit' });
+  });
   this.route('donations');
 });
