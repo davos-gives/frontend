@@ -1,4 +1,5 @@
-// mirage/models/blog-post.js
-import { Model } from 'ember-cli-mirage';
+import { Model, belongsTo } from 'ember-cli-mirage';
 
-export default Model;
+export default Model.extend({
+  organization: belongsTo()
+});

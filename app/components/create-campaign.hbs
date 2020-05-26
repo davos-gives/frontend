@@ -1,0 +1,73 @@
+{{#with (changeset @newCampaign this.ShortCampaignValidations) as |campaign|}}
+<div class="bg-white h-32 border border rounded-lg shadow-lg mr-24 flex items-center"
+  {{did-insert this.validate campaign}}>
+  <div class="-ml-4 -mt-4 flex justify-between items-center flex-wrap sm:flex-no-wrap flex-1 px-8">
+    <div class="ml-4 mt-4 self-center flex justify-between flex-grow mr-12">
+      <div class="flex-grow">
+        <label for="campaign" class="block text-normal font-medium leading-5 text-gray-700">Nationbuilder
+          Campaign</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            {{svg-jar "Search" class="h5 w-5 fill-current"}}
+          </div>
+          <PowerSelect @searchEnabled={{true}} @selected={{campaign.slug}} @options={{@slugs}} @searchField="name"
+            @placeholder="Campaign name" @onChange={{fn (mut campaign.slug)}} as |slug|>
+            {{slug.name}}
+          </PowerSelect>
+        </div>
+      </div>
+      <div class="w-1/4 mx-4">
+        <label for="amountEligable" class="block font-medium leading-5 text-gray-700">Eligable Amount</label>
+        <div class="mt-1 flex rounded-md">
+          <div class="relative flex-grow focus-within:z-10">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+              {{svg-jar "Money" class="h5 w-5 fill-current"}}
+            </div>
+            <Input id="amountEligable" @value={{campaign.amountEligableForReceipt}}
+              class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow-sm"
+              placeholder="100.00" />
+          </div>
+          <button type="button"
+            class="-ml-px relative inline-flex items-center px-4 py-2 text-sm leading-5 font-medium rounded-r-md text-gray-700">
+            /
+            <span class="ml-2">$100</span>
+          </button>
+        </div>
+      </div>
+      <div class="flex-grow">
+        <label for="receipt" class="block text-normal font-medium leading-5 text-gray-700">Davos
+          Receipt</label>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+            {{svg-jar "Search" class="h5 w-5 fill-current"}}
+          </div>
+
+          <PowerSelect @searchEnabled={{true}} @selected={{campaign.receipt}} @options={{@receipts}} @searchField="name"
+            @placeholder="Campaign name" @onChange={{fn (mut campaign.receipt)}} as |receipt|>
+            {{receipt.name}}
+          </PowerSelect>
+          {{!-- <input id="receipt" class="form-input block w-full pl-10 sm:text-sm sm:leading-5" placeholder="Default" /> --}}
+        </div>
+      </div>
+    </div>
+    <div class="ml-4 mt-4 flex-shrink-0">
+      <span class="inline-flex rounded-md shadow-sm">
+        <LinkTo @route="campaigns.new"
+          @query={{hash slug=campaign.slug.name amountEligableForReceipt=campaign.amountEligableForReceipt receiptId=campaign.receipt.id}}
+          class="relative inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-full text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:shadow-outline {{if campaign.isInvalid "opacity-50 cursor-not-allowed"}}">
+          Link Receipt
+        </LinkTo>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="mt-16 flex mr-24 flex-wrap">
+
+  {{outlet}}
+
+  {{#each this.sortedCampaigns as |campaign|}}
+  <CampaignCard @campaign={{campaign}} />
+  {{/each}}
+</div>
+{{/with}}

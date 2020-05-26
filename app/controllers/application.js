@@ -6,7 +6,6 @@ import { fadeIn, fadeOut } from 'ember-animated/motions/opacity';
 
 export default class IndexController extends Controller {
   @tracked opened = true;
-  @tracked subMenuOpen = false;
 
   *transition({ duration, removedSprites, insertedSprites }) {
     for (let sprite of removedSprites) {
@@ -26,10 +25,5 @@ export default class IndexController extends Controller {
   @action
   growMenu() {
     this.opened = true;
-  }
-
-  @action
-  toggleMenu() {
-    this.subMenuOpen = !this.subMenuOpen;
   }
 }

@@ -40,3 +40,13 @@ input:required {
 .bg-purple-gradient {
   background: linear-gradient(180deg, #411E82 0%, #6D3EFF 100%);
 }
+
+.editing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(41,35,53,0.91);
+  z-index: 10;
+}

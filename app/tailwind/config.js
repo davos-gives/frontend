@@ -628,7 +628,7 @@ module.exports = {
     boxSizing: ['responsive'],
     cursor: ['responsive'],
     display: ['responsive'],
-    fill: ['responsive'],
+    fill: ['active', 'responsive'],
     flex: ['responsive'],
     flexDirection: ['responsive'],
     flexGrow: ['responsive'],
@@ -668,7 +668,7 @@ module.exports = {
     strokeWidth: ['responsive'],
     tableLayout: ['responsive'],
     textAlign: ['responsive'],
-    textColor: ['responsive', 'hover', 'focus'],
+    textColor: ['active', 'responsive', 'hover', 'focus'],
     textDecoration: ['responsive', 'hover', 'focus'],
     textTransform: ['responsive'],
     userSelect: ['responsive'],
@@ -701,7 +701,7 @@ module.exports = {
   corePlugins: {},
   plugins: [
     require('@tailwindcss/custom-forms'),
-    require('@tailwindcss/ui')({ 
+    require('@tailwindcss/ui')({
       layout: 'sidebar',
     })
   ]

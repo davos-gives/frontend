@@ -14,4 +14,8 @@ Router.map(function () {
     this.route('edit', { path: ':receipt_id/edit' });
   });
   this.route('donations');
+  this.route('account');
+  this.route('campaigns', { path: "/" }, function () {
+    this.route('new');
+  });
 });

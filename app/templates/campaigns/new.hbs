@@ -1,0 +1,5 @@
+{{#with (changeset @model.campaign this.LongCampaignValidations) as |campaign|}}
+<CampaignEditingCard @campaign={{campaign}} @cancel={{this.cancel}} @isEditing={{this.isEditing}}
+  @receipts={{@model.receipts}} @save={{this.save}} />
+<span {{did-insert this.addTrackedParams campaign}} {{did-insert this.validate campaign}}></span>
+{{/with}}

@@ -1,0 +1,67 @@
+<div class="w-1/3 relative">
+  <div class={{if @isEditing "editing-overlay"}}></div>
+
+  {{#if @isEditing}}
+  <p class="absolute text-white z-30 ml-2 pl-4 cursor-pointer block -mt-12" data-test-id="go back">
+    <button alt="back" class="inline-flex" {{on "click" (fn @cancel @campaign)}}>
+      {{svg-jar "ChevronWhite" class="w-4 rotate-90 transform"}}
+      Cancel
+    </button>
+  </p>
+  {{/if}}
+
+  {{#if @isEditing}}
+  <button
+    class="rounded-full text-white font-thin py-2 px-4 rounded-full absolute z-30 block -mt-8 {{if @campaign.isInvalid "bg-gray-500" "bg-yellow-500"}}"
+    style="margin-left: 340px;" data-test-id="save" {{on "click" (fn @save @campaign)}}>
+    Save
+  </button>
+  {{else}}
+  {{#if this.updated}}
+  <button class="rounded-full bg-green-500 text-white font-thin py-2 px-4 rounded-full absolute block z-30 -mt-8"
+    style="margin-left: 312px;">Updated!</button>
+  {{/if}}
+  {{/if}}
+
+  <div
+    class="w-100 rounded-lg overflow-hidden shadow-md -mt-4 mx-2 mb-8 cursor-pointer bg-white {{if @isEditing "z-20 relative"}}">
+    {{#if @campaign.imageUrl}}
+    <div class="image w-full h-48 bg-purple-card-background {{if @isEditing "z-20 relative"}} overflow-hidden">
+      <img src={{@campaign.imageUrl}} class="opacity-80 featured-image" alt="barks and meows shelter campaign"
+        data-test-id="campaign image">
+    </div>
+    {{else}}
+    <div class="w-full {{if @isEditing "z-20 relative"}} flex text-yellow-600 overflow-hidden h-48"
+      data-test-id="default image">
+      {{svg-jar this.defaultImage class="object-cover fill-current h-full object-top w-full"}}
+      {{!-- {{svg-jar this.defaultImage }} --}}
+    </div>
+    {{/if}}
+
+    <div class="px-10 py-4 {{if @isEditing "relative z-20"}} bg-white {{if @updated "border-bottom-green" "mb-7px"}}">
+      <div class="pb-6 border-grey-light border-solid border-b bg-white">
+        {{!-- <Input class="font-bold text-gray-500 mt-4 capitalize text-lg" data-test-id="organization name" /> --}}
+        <Input id="campaign" @value={{@campaign.name}} class="font-bold text-gray-500 mt-4 capitalize text-lg"
+          placeholder="Campaign name" />
+
+        <p class="font-light text-grey-card mb-4" data-test-id="campaign name">
+          <span class="font-semibold text-grey-card">{{@campaign.amountEligableForReceipt }}</span> / $100
+        </p>
+        <Textarea @value={{@campaign.description}} placeholder="Description of your campaign"
+          class="text-left font-sm text-grey-card-2 pt-3 form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          data-test-id="campaign frequency">
+        </Textarea>
+      </div>
+      <div class="mt-2 flex">
+        <p
+          class="text-2xl font-bold w-34 text-center {{if this.amountEdited "text-yellow" "text-grey-card"}} align-top -mt-2 amount">
+        </p>
+
+        <PowerSelect @searchEnabled={{true}} @selected={{@campaign.receipt}} @options={{@receipts}} @searchField="name"
+          @placeholder="Receipt Name" @onChange={{fn (mut @campaign.receipt)}} as |receipt|>
+          {{receipt.name}}
+        </PowerSelect>
+      </div>
+    </div>
+  </div>
+</div>
