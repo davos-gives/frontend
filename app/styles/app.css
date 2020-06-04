@@ -50,3 +50,7 @@ input:required {
   background-color: rgba(41,35,53,0.91);
   z-index: 10;
 }
+
+.active {
+  @apply text-purple-500;
+}

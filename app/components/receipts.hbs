@@ -1,0 +1,83 @@
+<section class="mt-8 w-full">
+  <div class="my-8 mx-auto w-1/2">
+    <h1 class="uppercase text-white text-base text-center mt-4">Search Receipts</h1>
+    <Input type="text"
+      class="w-full border border-grey py-2 px-4 text-grey-dark rounded flex font-semibold mt-4 bg-grey-lightest"
+      placeholder="Type in a donor's first or last name, receipt number or receipted amount"
+      @value={{mut this.search}} />
+  </div>
+</section>
+
+
+<div class="flex flex-col h-full">
+  <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 h-full">
+    <div
+      class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200 min-h-3/4 bg-white">
+      <table class="min-w-full bg-gray-200 h-auto">
+        <thead>
+          <tr>
+            <th
+              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              Receipt Number
+            </th>
+            <th
+              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              Name
+            </th>
+            <th
+              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              Amount
+            </th>
+            <th
+              class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+              Transaction Date
+            </th>
+            <th class="px-6 py-3 border-b border-gray-200 bg-gray-50"></th>
+          </tr>
+        </thead>
+        <tbody class="bg-white">
+          {{#animated-each this.filteredDonations as |receipt|}}
+          <tr>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+              <div class="text-sm leading-5 text-gray-900">{{receipt.id}}</div>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+              <div class="flex items-center">
+                <div class="flex-shrink-0 h-10 w-10">
+                  <span
+                    class="h-10 w-10 rounded-full flex items-center justify-center rounded-full uppercase text-sm bg-purple-300">{{icon-creator receipt.firstName}}{{icon-creator receipt.lastName}}</span>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm leading-5 font-medium text-gray-900">{{receipt.firstName}}
+                    {{receipt.lastName}}</div>
+                  <div class="text-sm leading-5 text-gray-500">{{receipt.email}}</div>
+                </div>
+              </div>
+            </td>
+
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                {{format-currency receipt.paymentAmount}}
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+              {{date-format receipt.insertedAt "MMM D, YYYY"}}
+            </td>
+            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
+              <div class="justify-between flex group-hover:block w-12">
+                <a href={{receipt.url}} target="_blank"
+                  class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+                  {{svg-jar "Download" class="h-full w-full fill-current"}}
+                </a>
+                <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+                  {{svg-jar "Redo" class="h-full w-full fill-current"}}
+                </button>
+              </div>
+            </td>
+          </tr>
+          {{/animated-each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
