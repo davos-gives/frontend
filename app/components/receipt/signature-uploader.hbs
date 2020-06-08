@@ -1,0 +1,9 @@
+<FileUpload @name="photos" @accept="image/*" @onfileadd={{action this.uploadImage}} as |queue|>
+  <a class="button bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-light cursor-pointer">
+    {{#if queue.files.length}}
+    <span><img src="/img/icons/Upload.svg" class="w-4 -mt-1 mr-2 align-middle" /> Uploading...</span>
+    {{else}}
+    <span><img src="/img/icons/Upload.svg" class="w-4 -mt-1 mr-2 align-middle" /> Upload files</span>
+    {{/if}}
+  </a>
+</FileUpload>

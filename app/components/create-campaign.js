@@ -1,6 +1,5 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import ShortCampaignValidations from '../validations/short-campaign';
 import { sort } from '@ember/object/computed';
