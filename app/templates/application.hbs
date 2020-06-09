@@ -1,5 +1,6 @@
 <div class="h-screen flex overflow-hidden bg-gray-100">
   <div class="flex">
+    {{#if this.showMenu}}
     <AnimatedContainer class="bg-white flex-shrink-0 flex overflow-hidden">
       {{#animated-if this.opened use=this.transition duration=300}}
       <div class="flex flex-col">
@@ -66,6 +67,7 @@
       </div>
       {{/animated-if}}
     </AnimatedContainer>
+    {{/if}}
   </div>
   <div class="flex flex-col w-0 flex-1 overflow-scroll">
     {{outlet}}

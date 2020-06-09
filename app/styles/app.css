@@ -19,6 +19,12 @@
   transition: 0.2s ease all;
 }
 
+#nationbuilder .label {
+  position: absolute;
+  top: 30px;
+  transition: 0.2s ease all;
+}
+
 .focused .label, input:valid ~ label {
   top: -10px;
   background-color: #fff;
@@ -26,6 +32,10 @@
   margin-left: 0.9rem;
   color: #6d3eff;
   font-weight: 600;
+}
+
+#nationbuilder .focused .label, input:valid ~ label {
+  top: 6px;
 }
 
 .focused .input, .input:valid {
@@ -53,4 +63,9 @@ input:required {
 
 .active {
   @apply text-purple-500;
+}
+
+.receipt-preview iframe {
+  width: 1000px;
+  height: 1290px;
 }

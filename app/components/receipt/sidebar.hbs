@@ -1,22 +1,24 @@
 <div class="w-1/4 h-full bg-gray-100 shadow-lg relative z-10 overflow-y-scroll border-l-2 border-gray-100 {{hidden}}">
   <div class="flex w-full shadow">
-    <button class="w-1/2 bg-white text-grey-darker text-lg shadow" {{on "click" @toggleSidebar}}>Design</button>
+    <button class="w-1/2 bg-white text-gray-800 text-lg shadow" {{on "click" @toggleSidebar}}>Design</button>
     <button class="w-1/2 bg-purple-500 text-white font-semibold py-3 text-xl">Receipt Details</button>
   </div>
   <form>
     {{!-- Thank you letter --}}
     <div class="bg-white">
       <div class="flex py-2 px-8 mx-4">
-        <h3 class="w-1/2 my-8 text-grey-darker text-xl font-bold">Thank you letter</h3>
-        <div class="w-1/2 my-8">
+        <h3 class="w-3/5 my-8 text-gray-800 text-xl font-bold">Thank you letter</h3>
+        <div class="w-2/5 my-8">
           {{#if contentComplete}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple text-white text-center flex justify-center float-right"><img
-              src="/img/icons/ConfirmWhite.svg" class="w-3 self-center"></span>
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
           {{else}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-white text-white text-center flex justify-center float-right border-2 border-purple"><img
-              src="/img/icons/ConfirmPurple.svg" class="w-3 self-center"></span>
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
           {{/if}}
         </div>
       </div>
@@ -24,9 +26,9 @@
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
             <p class="text-grey mb-2">Message</p>
-            <input type="text" value={{@template.name}}
+            <Input type="text" @value={{@template.title}}
               class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
-              placeholder="Help us find a new home!">
+              placeholder="Help us find a new home!" />
           </div>
         </div>
       </div>
@@ -59,12 +61,14 @@
         <div class="w-1/2 my-8">
           {{#if photosComplete}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple text-white text-center flex justify-center float-right"><img
-              src="/img/icons/ConfirmWhite.svg" class="w-3 self-center"></span>
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
           {{else}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-white text-white text-center flex justify-center float-right border-2 border-purple"><img
-              src="/img/icons/ConfirmPurple.svg" class="w-3 self-center"></span>
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
           {{/if}}
         </div>
       </div>
@@ -75,26 +79,60 @@
           </div>
         </div>
       </div>
+      <div class="flex items-center justify-center">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Library</p>
+          </div>
+        </div>
+      </div>
+
+      <Receipt::SignatureViewer @value={{@template.signature}} />
     </div>
 
-    <div class="flex items-center justify-center">
-      <div class="w-3/4 flex justify-around">
-        <div class="w-full">
-          <p class="text-grey mb-2">Library</p>
+    <div class="bg-white mb-12">
+      <div class="flex py-2 px-8 mx-4">
+        <h3 class="w-1/2 my-8 text-grey-darker text-xl font-bold">Receipt</h3>
+        <div class="w-1/2 my-8">
+          {{#if contentComplete}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{else}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Starting Receipt Stack #</p>
+            <input type="text" value={{@template.stackStartingNumber}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
+              placeholder="0000000000">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Date Format</p>
+
+            <PowerSelect @options={{this.dateFormats}} @selected={{@template.dateFormat}} @searchEnabled={{false}}
+              @onChange={{fn (mut @template.dateFormat)}}
+              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold font"}}
+              @dropdownClass={{"fonts"}} @placeholder={{"Select a Date format"}} as |date|>
+              <span class="text-lg text-left list-item">{{date}}</span>
+            </PowerSelect>
+          </div>
         </div>
       </div>
     </div>
 
-    <Receipt::SignatureViewer @value={{@template.signature}} />
-
   </form>
-
-
-
-  {{!-- <div class="flex items-center justify-center mt-4 relative">
-    <div class="w-3/4 flex justify-around">
-      <div class="w-full h-12">
-      </div>
-    </div>
-  </div> --}}
 </div>

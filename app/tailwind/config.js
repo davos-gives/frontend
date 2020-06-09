@@ -178,6 +178,7 @@ module.exports = {
       default: '0.25rem',
       md: '0.375rem',
       lg: '0.5rem',
+      xl: '1.25rem',
       full: '9999px',
     },
     borderWidth: {
@@ -328,6 +329,7 @@ module.exports = {
       '4xl': '56rem',
       '5xl': '64rem',
       '6xl': '72rem',
+      '8xl': '96rem',
       full: '100%',
       ...breakpoints(theme('screens')),
     }),

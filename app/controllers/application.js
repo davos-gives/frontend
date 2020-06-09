@@ -2,9 +2,11 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { fadeIn, fadeOut } from 'ember-animated/motions/opacity';
-
+import { inject as service } from '@ember/service';
 
 export default class IndexController extends Controller {
+  @service router;
+
   @tracked opened = true;
 
   *transition({ duration, removedSprites, insertedSprites }) {
@@ -25,5 +27,13 @@ export default class IndexController extends Controller {
   @action
   growMenu() {
     this.opened = true;
+  }
+
+  get showMenu() {
+    if (this.router.currentRoute.name == "signup" || this.router.currentRoute.name == "create-organization") {
+      return false;
+    } else {
+      return true;
+    }
   }
 }

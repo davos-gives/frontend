@@ -8,17 +8,16 @@ import pagedArray from 'ember-cli-pagination/computed/paged-array';
 export default class ReceiptSignatureViewerComponent extends Component {
   @service store;
 
-  @tracked signatures = null;
   @tracked page = 1;
   @tracked perPage = 10;
 
   constructor() {
     super(...arguments);
-    signatures = this.store.findAll('signature');
+    const signatures = this.store.findAll('signature');
   }
 
   @pagedArray(
-    this.signatures, { page: alias('parent.page'), perPage: alias('parent.perPage') }
+    'signatures', { page: alias('parent.page'), perPage: alias('parent.perPage') }
   ) pagedContent;
 
   @oneWay('pagedContent.totalPages') totalPages;

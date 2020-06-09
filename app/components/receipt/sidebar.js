@@ -3,8 +3,7 @@ import { action } from '@ember/object';
 import { exec, init } from 'pell'
 
 export default class ReceiptSidebarComponent extends Component {
-
-  // fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"]
+  dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
 
   @action
   initPell() {

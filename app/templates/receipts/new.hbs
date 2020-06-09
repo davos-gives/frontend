@@ -3,7 +3,7 @@
   <Receipt::Sidebar @template={{receipt}} @visible={{true}} @saved={{saved}} @updateTemplate={{true}}
     @saveChanges={{true}} @toggleSidebar={{this.toggleSidebar}} class="flex-0" />
   <div class="flex-grow">
-    <div class="relative z-10 flex-shrink-0 flex h-16">
+    <div class="relative z-20 flex-shrink-0 flex h-16">
       <button type="button"
         class="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:bg-gray-100 focus:text-gray-600 md:hidden">
         <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -17,7 +17,7 @@
           <div class="ml-3 relative">
             <div>
               <button type="button" {{on "click" this.toggleMenu}}
-                class="inline-block no-underline text-white font-semibold text-sm align-middle capitalize focus:outline-none active:outline-none">
+                class="inline-block no-underline text-gray-500 font-semibold text-sm align-middle capitalize focus:outline-none active:outline-none">
                 Ian Knauer
               </button>
             </div>
@@ -36,32 +36,26 @@
       <div class="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-8">
       </div>
     </div>
-
-    <main class="">
-      <div class="max-w-7xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between w-3/4 mx-auto items-center mt-8">
+    <main class="mt-2">
+      <div class="max-w-5xl flex flex-col mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between w-full mx-auto items-center mt-8 flex-grow z-20">
           <div>
-            <button
-              class="self-center py-1 text-white rounded-full border border-purple bg-purple font-thin rounded-full text-center text-sm float-right self-center mx-8 px-6 focus:outline-none"
-              {{on "click" this.toggleSidebar}}>
-              <img src="/img/icons/full_screen.png" class="w-4 pt-1" />
-            </button>
           </div>
           <div>
             <button
-              class="self-center py-2 text-white rounded-full border border-purple bg-purple font-thin px-4 rounded-full text-center text-sm float-right self-center mx-1">
-              Save
-            </button>
-            <button
-              class="self-center py-2 rounded-full border border-grey text-grey font-semibold font-thin px-4 rounded-full text-center text-sm float-right self-center mx-1">
+              class="self-center py-2 text-white rounded-full border border-purple-500 bg-purple-500 px-4 rounded-full text-center text-sm float-right self-center mx-1">
               Publish
             </button>
+            {{!-- <button
+              class="self-center py-2 rounded-full border border-grey text-grey font-semibold font-thin px-4 rounded-full text-center text-sm float-right self-center mx-1">
+              Publish
+            </button> --}}
           </div>
 
         </div>
-        <div class="flex h-8/10 justify-center w-auto">
+        <div class="flex justify-center w-auto -mt-12 relative z-10">
           <div class="receipt-preview mt-6 {{if sidebarVisible '' 'full-screen'}}">
-            <iframe src="" frameborder="0" id="my-iframe" class="iframe shadow-lg mb-12"></iframe>
+            <Receipt::Frame @receipt={{receipt}} />
           </div>
         </div>
         <section class="flex flex-wrap w-full mx-auto text-sm pt-8 container">

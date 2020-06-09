@@ -17,4 +17,7 @@ export default function () {
   this.get('/receipts');
   this.get('/receipts/:id');
   this.get('/slugs');
+
+  this.get('signatures');
+  this.get('signatures/:id')
 }
