@@ -1,9 +1,23 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { exec, init } from 'pell'
+import { exec, init } from 'pell';
+import { tracked } from '@glimmer/tracking';
 
 export default class ReceiptSidebarComponent extends Component {
   dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
+  fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"];
+
+  @tracked isContent = false;
+
+  @action
+  toggleSidebar() {
+    this.isContent = !this.isContent;
+  }
+
+  @action
+  updateManualColour() {
+    console.log("updating colour from the manual picker");
+  }
 
   @action
   initPell() {
@@ -56,13 +70,7 @@ export default class ReceiptSidebarComponent extends Component {
           icon: '<div class="justify-full"></div>',
           title: 'Justify Full',
           result: () => exec('justifyFull')
-        },
-        {
-          name: 'Link',
-          icon: '<div class="link"></div>',
-          title: 'Link',
-          result: () => exec('createLink')
-        },
+        }
       ]
     })
   }

@@ -12,7 +12,7 @@
 
   {{#if @isEditing}}
   <button
-    class="rounded-full text-white font-thin py-2 px-4 rounded-full absolute z-30 block -mt-8 {{if @campaign.isInvalid "bg-gray-500" "bg-yellow-500"}}"
+    class="rounded-full text-white font-light py-2 px-4 rounded-full absolute z-30 block -mt-8 {{if @campaign.isInvalid "bg-gray-500" "bg-yellow-500"}}"
     style="margin-left: 340px;" data-test-id="save" {{on "click" (fn @save @campaign)}}>
     Save
   </button>
@@ -41,22 +41,19 @@
     <div class="px-10 py-4 {{if @isEditing "relative z-20"}} bg-white {{if @updated "border-bottom-green" "mb-7px"}}">
       <div class="pb-6 border-grey-light border-solid border-b bg-white">
         {{!-- <Input class="font-bold text-gray-500 mt-4 capitalize text-lg" data-test-id="organization name" /> --}}
-        <Input id="campaign" @value={{@campaign.name}} class="font-bold text-gray-500 mt-4 capitalize text-lg"
+        <Input id="campaign" @value={{@campaign.name}}
+          class="font-bold text-gray-500 mt-4 capitalize text-lg appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
           placeholder="Campaign name" />
 
         <p class="font-light text-grey-card mb-4" data-test-id="campaign name">
           <span class="font-semibold text-grey-card">{{@campaign.amountEligableForReceipt }}</span> / $100
         </p>
         <Textarea @value={{@campaign.description}} placeholder="Description of your campaign"
-          class="text-left font-sm text-grey-card-2 pt-3 form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5"
+          class="text-left font-sm text-grey-card-2 pt-3 form-textarea block w-full transition duration-150 ease-in-out sm:text-sm sm:leading-5 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
           data-test-id="campaign frequency">
         </Textarea>
       </div>
-      <div class="mt-2 flex">
-        <p
-          class="text-2xl font-bold w-34 text-center {{if this.amountEdited "text-yellow" "text-grey-card"}} align-top -mt-2 amount">
-        </p>
-
+      <div class="mt-4 flex borderless-search">
         <PowerSelect @searchEnabled={{true}} @selected={{@campaign.receipt}} @options={{@receipts}} @searchField="name"
           @placeholder="Receipt Name" @onChange={{fn (mut @campaign.receipt)}} as |receipt|>
           {{receipt.name}}

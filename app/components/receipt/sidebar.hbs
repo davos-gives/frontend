@@ -1,13 +1,15 @@
-<div class="w-1/4 h-full bg-gray-100 shadow-lg relative z-10 overflow-y-scroll border-l-2 border-gray-100 {{hidden}}">
+{{#if this.isContent}}
+<div class="w-1/4 h-full bg-white shadow-lg relative z-10 overflow-y-scroll border-l-2 border-gray-100">
   <div class="flex w-full shadow">
-    <button class="w-1/2 bg-white text-gray-800 text-lg shadow" {{on "click" @toggleSidebar}}>Design</button>
+    <button class="w-1/2 bg-white text-gray-800 text-lg shadow" {{on "click" this.toggleSidebar}}>Design</button>
     <button class="w-1/2 bg-purple-500 text-white font-semibold py-3 text-xl">Receipt Details</button>
   </div>
+
   <form>
     {{!-- Thank you letter --}}
     <div class="bg-white">
       <div class="flex py-2 px-8 mx-4">
-        <h3 class="w-3/5 my-8 text-gray-800 text-xl font-bold">Thank you letter</h3>
+        <h3 class="w-3/5 my-8 text-gray-800 text-lg font-bold">Thank you letter</h3>
         <div class="w-2/5 my-8">
           {{#if contentComplete}}
           <span
@@ -55,9 +57,9 @@
       </div>
     </div>
 
-    <div class="bg-grey-100">
+    <div class="bg-gray-100">
       <div class="flex py-8 px-8 mx-4">
-        <h3 class="w-1/2 my-8 text-grey-darker text-xl font-bold">Signature</h3>
+        <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Signature</h3>
         <div class="w-1/2 my-8">
           {{#if photosComplete}}
           <span
@@ -92,7 +94,7 @@
 
     <div class="bg-white mb-12">
       <div class="flex py-2 px-8 mx-4">
-        <h3 class="w-1/2 my-8 text-grey-darker text-xl font-bold">Receipt</h3>
+        <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Receipt</h3>
         <div class="w-1/2 my-8">
           {{#if contentComplete}}
           <span
@@ -121,6 +123,26 @@
       <div class="flex items-center justify-center pb-8">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
+            <p class="text-grey mb-2">Surrounding Receipt Info</p>
+            <input type="text" value={{@template.stackStartingNumber}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
+              placeholder="VGH2020-#-Can">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Formatted Receipt Number</p>
+            <p>VGH2020-100000-Can</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
             <p class="text-grey mb-2">Date Format</p>
 
             <PowerSelect @options={{this.dateFormats}} @selected={{@template.dateFormat}} @searchEnabled={{false}}
@@ -133,6 +155,149 @@
         </div>
       </div>
     </div>
+  </form>
+</div>
+{{else}}
+<div class="w-1/4 h-full bg-white shadow-lg relative z-10 overflow-y-scroll border-l-2 border-gray-100">
+  <div class="flex w-full shadow">
+    <button class="w-1/2 bg-purple-500 text-white font-semibold py-3 text-xl">Design</button>
+    <button class="w-1/2 bg-white text-gray-800 text-lg shadow" {{on "click" this.toggleSidebar}}>Receipt
+      Details</button>
+  </div>
+
+  <form>
+
+    <div class="bg-white">
+      <div class="flex py-2 px-8 mx-4">
+        <h3 class="w-3/5 my-8 text-gray-800 text-lg font-bold">Templates</h3>
+        <div class="w-2/5 my-8">
+          {{#if contentComplete}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{else}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-3/4 flex justify-left">
+            {{#if (eq this.changeset.template 2)}}
+            <img class="w-24" src="/img/Template_Preview_2.png" />
+            {{else}}
+            <img class="w-24 opacity-50" src="/img/Template_Preview_2.png" />
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-gray-100">
+      <div class="flex py-8 px-8 mx-4">
+        <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Logo</h3>
+        <div class="w-1/2 my-8">
+          {{#if photosComplete}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{else}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="flex items-center justify-center mb-12">
+        <div class="w-3/4 flex justify-left -ml-8">
+          <div class="w-full">
+            <Receipt::SignatureUploader />
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center justify-center">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Library</p>
+          </div>
+        </div>
+      </div>
+
+      <Receipt::SignatureViewer @value={{@template.signature}} />
+    </div>
+
+    <div class="bg-white mb-12">
+      <div class="flex py-2 px-8 mx-4">
+        <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Fonts & Colours</h3>
+        <div class="w-1/2 my-8">
+          {{#if contentComplete}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{else}}
+          <span
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Font</p>
+            <PowerSelect @options={{this.fonts}} @selected={{@template.font}} @searchEnabled={{false}}
+              @onChange={{fn (mut @template.font)}}
+              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold font"}}
+              @dropdownClass={{"fonts"}} @placeholder={{"Select a font..."}} as |font|>
+              <span class="text-lg text-left list-item">{{font}}</span>
+            </PowerSelect>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-grey mb-2">Colour Collections</p>
+            <Receipt::TemplateColourSelect @value={{@template.colourSet}} />
+            <div class="flex items-center justify-center">
+              <div class="w-3/4 flex justify-around">
+                <h3 class="w-1/3 text-grey text-xl font-bold capitalize border-b border-gray-500 pb-4">
+                  Golden
+                </h3>
+                <div class="md:flex md:items-center mb-6">
+                  <label class="block text-gray-500 font-bold">
+                    <input class="mr-2 leading-tight" type="checkbox">
+                    <span class="text-sm">
+                      Light Mode
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-6">
+        {{manual-colour-picker
+        primaryColour=this.changeset.primaryColour
+        secondaryColour=this.changeset.secondaryColour
+        tertiaryColour=this.changeset.tertiaryColour
+        quaternaryColour=this.changeset.quaternaryColour
+        quinaryColour=this.changeset.quinaryColour
+        onChange=(action "updateManualColour")
+      }}
+      </div>
+    </div>
 
   </form>
 </div>
+{{/if}}

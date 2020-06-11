@@ -24,7 +24,7 @@
               {{svg-jar "Money" class="h5 w-5 fill-current"}}
             </div>
             <Input id="amountEligable" @value={{campaign.amountEligableForReceipt}}
-              class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow-sm"
+              class="form-input block w-full rounded-none rounded-l-md pl-10 transition ease-in-out duration-150 sm:text-sm sm:leading-5 shadow-sm appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
               placeholder="100.00" />
           </div>
           <button type="button"
@@ -42,15 +42,15 @@
             {{svg-jar "Search" class="h5 w-5 fill-current"}}
           </div>
 
-          <PowerSelect @searchEnabled={{true}} @selected={{campaign.receipt}} @options={{@receipts}} @searchField="name"
-            @placeholder="Campaign name" @onChange={{fn (mut campaign.receipt)}} as |receipt|>
+          <PowerSelect @searchEnabled={{false}} @selected={{campaign.receipt}} @options={{@receipts}}
+            @searchField="name" @placeholder="Campaign name" @onChange={{fn (mut campaign.receipt)}} as |receipt|>
             {{receipt.name}}
           </PowerSelect>
           {{!-- <input id="receipt" class="form-input block w-full pl-10 sm:text-sm sm:leading-5" placeholder="Default" /> --}}
         </div>
       </div>
     </div>
-    <div class="ml-4 mt-4 flex-shrink-0">
+    <div class="ml-4 mt-8 pt-2 flex-shrink-0">
       <span class="inline-flex rounded-md shadow-sm">
         <LinkTo @route="campaigns.new"
           @query={{hash slug=campaign.slug.name amountEligableForReceipt=campaign.amountEligableForReceipt receiptId=campaign.receipt.id}}

@@ -7,7 +7,7 @@
         data-test-id="campaign image">
     </div>
     {{else}}
-    <div class="w-full {{if this.isEditing "z-20 relative"}} flex text-yellow-600 overflow-hidden h-48"
+    <div class="w-full {{if this.isEditing "z-20 relative"}} flex text-red-800 overflow-hidden h-48"
       data-test-id="default image">
       {{svg-jar this.defaultImage class="object-cover fill-current object-top"}}
     </div>
@@ -17,23 +17,21 @@
       class="px-10 py-4 {{if this.isEditing "relative z-20"}} bg-white {{if this.updated "border-bottom-green" "mb-7px"}}">
       <div class="pb-8 border-grey-light border-solid border-b bg-white">
         <p class="font-bold text-gray-500 mt-4 capitalize text-lg" data-test-id="organization name">
-          {{@campaign.name}}
+          Default
         </p>
         <p class="font-light text-grey-card mb-4" data-test-id="campaign name">
-          <span class="font-semibold text-grey-card">{{@campaign.amountEligableForReceipt }}</span> / $100
+          Created on May 17th, 2020
         </p>
-        <div class="h-16">
-          <p class="text-left font-sm capitalize text-grey-card-2 pt-3" data-test-id="campaign frequency">
-            {{@campaign.description}}
-          </p>
-        </div>
+        <span class="text-left font-sm capitalize text-grey-card-2 pt-3" data-test-id="campaign frequency">
+          {{!-- {{@campaign.description}} --}}
+        </span>
       </div>
       <div class="mt-4 flex">
         <p
           class="text-2xl font-bold w-34 text-center {{if this.amountEdited "text-yellow" "text-grey-card"}} align-top -mt-2 amount">
         </p>
         <span class="text-left font-sm capitalize text-grey-card-2" data-test-id="campaign frequency">
-          Default
+          1 Campaign
         </span>
       </div>
     </div>

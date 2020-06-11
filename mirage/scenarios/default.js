@@ -22,7 +22,7 @@ export default function (server) {
 
   server.create('user', { fname: "ian", lname: "knauer", email: "ian.knauer@davos.gives", organization: organization });
 
-  server.create('campaign', { name: "Default", description: "A fallback campaign that catches all unassigned donations", isActive: true });
+  server.create('campaign', { name: "Default", description: "A fallback campaign that catches all unassigned donations", isActive: true, amountEligableForReceipt: 100 });
 
   server.create('donation', { receiptNumber: 1, firstName: "Ian", lastName: "Knauer", paymentAmount: 1300, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
   server.create('donation', { receiptNumber: 2, firstName: "Nancy", lastName: "Kwong", paymentAmount: 15000, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
