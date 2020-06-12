@@ -1,7 +1,11 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default class CampaignsNewRoute extends Route {
   model() {
-    return this.store.createRecord('receipt');
+    return RSVP.hash({
+      receipt: this.store.createRecord('receipt'),
+      signatures: this.store.findAll('signature')
+    })
   }
 }

@@ -1,5 +1,4 @@
 export default function () {
-
   this.get('/users');
   this.get('/users/:id');
   this.post('/users')
@@ -19,5 +18,8 @@ export default function () {
   this.get('/slugs');
 
   this.get('signatures');
-  this.get('signatures/:id')
+  this.get('signatures/:id');
+  this.post('/signatures');
+
+  this.passthrough("https://api.cloudinary.com/v1_1/davos-gives/image/upload");
 }

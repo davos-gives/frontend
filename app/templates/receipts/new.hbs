@@ -1,7 +1,7 @@
-{{#with (changeset @model) as |receipt|}}
+{{#with (changeset @model.receipt) as |receipt|}}
 <div class="flex">
   <Receipt::Sidebar @template={{receipt}} @visible={{true}} @saved={{saved}} @updateTemplate={{true}}
-    @saveChanges={{true}} @toggleSidebar={{this.toggleSidebar}} class="flex-0" />
+    @saveChanges={{true}} @toggleSidebar={{this.toggleSidebar}} @signatures={{@model.signatures}} class="flex-0" />
   <div class="flex-grow">
     <div class="relative z-20 flex-shrink-0 flex h-16">
       <button type="button"

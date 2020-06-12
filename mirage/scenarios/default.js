@@ -36,5 +36,7 @@ export default function (server) {
 
   server.create('receipt', { name: "Default Receipt" });
 
+  server.create('signature', { url: 'https://res.cloudinary.com/davos-gives/image/upload/v1591932357/jes4pc0pjqcw8aerdabl.png' });
+
   // plus whatever default scenario code you want
 }

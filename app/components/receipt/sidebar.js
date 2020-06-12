@@ -7,7 +7,7 @@ export default class ReceiptSidebarComponent extends Component {
   dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
   fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"];
 
-  @tracked isContent = false;
+  @tracked isContent = true;
 
   @action
   toggleSidebar() {
@@ -19,12 +19,24 @@ export default class ReceiptSidebarComponent extends Component {
     console.log("updating colour from the manual picker");
   }
 
+  updateBody(html) {
+    this.args.template.set('description', html);
+  }
+
+  get letterCompleted() {
+    return (
+      (!this.args.template.title || this.args.template.title.length === 0) ||
+      (!this.args.template.description || this.args.template.description.length === 0) ||
+      (!this.args.template.signatureFooter || this.args.template.signatureFooter.length === 0)
+    )
+  }
+
   @action
   initPell() {
     init({
       element: document.getElementById('description'),
       onChange: html => {
-        console.log(html); // need to set this output to the actual description field.
+        this.updateBody(html);
       },
       defaultParagraphSeparator: 'p',
       styleWithCSS: true,

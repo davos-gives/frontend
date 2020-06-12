@@ -5,6 +5,14 @@ export default class ReceiptFrameComponent extends Component {
     return this.args.receipt.title || 'Help us find a new home';
   }
 
+  get description() {
+    return this.args.receipt.description || 'After 18 years in the same location, the Barks & Moews Shelter faced a move. In addition to finding a suitable location that will permit us to continue our work, major renovations and modification may well be required. Your assistance to our organization is greatly appreciated. You are helping our shelter reach our goal; our survival is in your hands.';
+  }
+
+  get signatureFooter() {
+    return this.args.receipt.signatureFooter || 'Jane Smith, CEO, Barks & Meows Shelter';
+  }
+
   get frameSource() {
     return `
     <!DOCTYPE html>
@@ -22,14 +30,14 @@ export default class ReceiptFrameComponent extends Component {
         <main role="main" class="">
     <div class="receipts">
       <div class="flex h-56 mx-10 justify-between"> 
-        <h1 class="primary-text capitalize font-black text-3xl self-end">${this.title}</h1>
+        <h1 class="primary-text capitalize font-black text-3xl self-end" id="title">${this.title}</h1>
         <img id="logo" src="http://localhost:4000/images/barks.png" class="w-48 mt-4 self-start"/>
     
       </div>
       <div class="mx-10 mt-8 py-4">
-        <p class="texy-gray-700 leading-normal text-sm" id="description">After 18 years in the same location, the Barks & Moews Shelter faced a move. In addition to finding a suitable location that will permit us to continue our work, major renovations and modification may well be required. Your assistance to our organization is greatly appreciated. You are helping our shelter reach our goal; our survival is in your hands.</p>
+        <p class="texy-gray-700 leading-normal text-sm" id="description">${this.description}</p>
         <img id="signature" src="http://localhost:4000/images/signature.png" class="w-32" />
-        <p class="texy-gray-700 leading-normal text-sm italic">Wayne Hartrick, CEO, Barks & Meows Shelter</p>
+        <p class="texy-gray-700 leading-normal text-sm italic" id="signature footer">${this.signatureFooter}</p>
       </div>
     
     

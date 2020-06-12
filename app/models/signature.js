@@ -1,5 +1,6 @@
-import Model, { attr, hasMany } from '@ember-data/model';
+import Model, { attr } from '@ember-data/model';
 
 export default class SignatureModel extends Model {
   @attr url;
+  @attr category;
 }

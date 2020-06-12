@@ -11,14 +11,14 @@
       <div class="flex py-2 px-8 mx-4">
         <h3 class="w-3/5 my-8 text-gray-800 text-lg font-bold">Thank you letter</h3>
         <div class="w-2/5 my-8">
-          {{#if contentComplete}}
+          {{#if this.letterCompleted}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{else}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-purple-500 text-white text-center flex justify-center float-right">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{/if}}
@@ -29,7 +29,7 @@
           <div class="w-full">
             <p class="text-grey mb-2">Message</p>
             <Input type="text" @value={{@template.title}}
-              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
               placeholder="Help us find a new home!" />
           </div>
         </div>
@@ -49,16 +49,16 @@
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
             <p class="text-grey mb-2">Signature Footer</p>
-            <input type="text" value={{@template.signatureFooter}}
-              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
-              placeholder="Add a signature footer here">
+            <Input type="text" @value={{@template.signatureFooter}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
+              placeholder="Add a signature footer here" />
           </div>
         </div>
       </div>
     </div>
 
     <div class="bg-gray-100">
-      <div class="flex py-8 px-8 mx-4">
+      <div class="flex pt-8 px-8 mx-4">
         <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Signature</h3>
         <div class="w-1/2 my-8">
           {{#if photosComplete}}
@@ -89,7 +89,7 @@
         </div>
       </div>
 
-      <Receipt::SignatureViewer @value={{@template.signature}} />
+      <Receipt::SignatureViewer @value={{@template.signature}} @signatures={{@signatures}} />
     </div>
 
     <div class="bg-white mb-12">

@@ -1,0 +1,45 @@
+<div class="flex w-full justify-start items-center flex-col">
+  <div class="flex justify-center mt-4 mb-6">
+    <div class="w-3/4 flex justify-around">
+      <div class="w-full">
+        <div class="flex items-center justify-left">
+          <div class="w-36 flex">
+            {{#each this.pageItems as |item|}}
+            {{#if item.current}}
+            <span
+              class="rounded-full inline-block h-2 w-2 my-px items-center mx-1 relative bg-gray-300 self-center"></span>
+            {{else}}
+            <span class="rounded-full inline-block h-2 w-2 my-px items-center mx-1 relative bg-gray-600 self-center"
+              {{action "pageClicked" item.page}}></span>
+            {{/if}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination-centered">
+    <div class="pagination flex w-20 justify-between">
+      {{#if this.canStepBackward}}
+      <div class="bg-gray-600 h-8 w-8 rounded-full flex items-center justify-center" {{action "incrementPage" -1}}>
+        <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90" />
+      </div>
+      {{else}}
+      <div class="bg-gray-600 h-8 w-8 rounded-full flex items-center justify-center cursor-not-allowed opacity-50">
+        <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-90" />
+      </div>
+      {{/if}}
+
+      {{#if this.canStepForward}}
+      <div class="bg-gray-600 h-8 w-8 rounded-full flex items-center justify-center" {{action "incrementPage" 1}}>
+        <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-270" />
+      </div>
+      {{else}}
+      <div class="bg-gray-600 h-8 w-8 rounded-full flex items-center justify-center cursor-not-allowed opacity-50">
+        <img src="/img/icons/ChevronWhite.svg" class="w-2 rotate-270" />
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
