@@ -2,13 +2,14 @@
   <div class="w-3/4 flex overflow-hidden flex-wrap flex-col">
     <div class="flex flex-wrap overflow-hidden">
       {{#each this.pagedContent as |signature|}}
-      {{#if (eq signature.url value)}}
+      {{#if (eq signature.url @value)}}
       <div class="w-24 h-24 border-purple border-b-8 mx-1 my-1 flex items-center shadow"
         style="background-image: url({{signature.url}}); background-size: contain; background-repeat: no-repeat; background-position: center;">
       </div>
       {{else}}
       <div class="w-24 h-24 mx-1 my-1 flex items-center shadow opacity-50"
-        style="background-image: url({{signature.url}}); background-size: contain; background-repeat: no-repeat; background-position: center;">
+        style="background-image: url({{signature.url}}); background-size: contain; background-repeat: no-repeat; background-position: center;"
+        {{on "click" (fn @toggleSignature signature.url)}}>
       </div>
       {{/if}}
       {{/each}}

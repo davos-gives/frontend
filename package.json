@@ -64,6 +64,7 @@
     "ember-source": "~3.18.0",
     "ember-svg-jar": "^2.2.3",
     "ember-template-lint": "^2.6.0",
+    "ember-truth-helpers": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-ember": "^8.4.0",
     "eslint-plugin-node": "^11.1.0",
@@ -83,6 +84,7 @@
   "dependencies": {
     "@tailwindcss/ui": "^0.3.0",
     "lodash-es": "^4.17.15",
+    "luxon": "^1.24.1",
     "pell": "^1.0.6"
   }
 }

@@ -12,6 +12,8 @@ export default class FormInputComponent extends Component {
 
   @action
   removeFocus() {
-    this.focused = false;
+    if (!this.args.value || this.args.value === "") {
+      this.focused = false;
+    }
   }
 }

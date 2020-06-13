@@ -11,7 +11,7 @@
       <div class="flex py-2 px-8 mx-4">
         <h3 class="w-3/5 my-8 text-gray-800 text-lg font-bold">Thank you letter</h3>
         <div class="w-2/5 my-8">
-          {{#if this.letterCompleted}}
+          {{#if this.letterInProcess}}
           <span
             class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
@@ -29,7 +29,7 @@
           <div class="w-full">
             <p class="text-grey mb-2">Message</p>
             <Input type="text" @value={{@template.title}}
-              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
+              class="w-full border border-grey py-2 px-4 text-gray-800 rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
               placeholder="Help us find a new home!" />
           </div>
         </div>
@@ -40,7 +40,7 @@
           <div class="w-full">
             <p class="text-grey mb-2"></p>
             <div id="description" {{did-insert (action this.initPell)}}
-              class="border border-grey-500 rounded-lg text-grey-dark">
+              class="border border-grey-500 rounded-lg text-gray-800">
             </div>
           </div>
         </div>
@@ -61,20 +61,20 @@
       <div class="flex pt-8 px-8 mx-4">
         <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Signature</h3>
         <div class="w-1/2 my-8">
-          {{#if photosComplete}}
+          {{#if this.signatureInProcess}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{else}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-purple-500 text-white text-center flex justify-center float-right">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{/if}}
         </div>
       </div>
-      <div class="flex items-center justify-center mb-12">
+      <div class="flex items-center justify-center mb-4">
         <div class="w-3/4 flex justify-left -ml-8">
           <div class="w-full">
             <Receipt::SignatureUploader />
@@ -84,38 +84,40 @@
       <div class="flex items-center justify-center">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
-            <p class="text-grey mb-2">Library</p>
+            <p class="text-gray-800 mb-2">Library</p>
           </div>
         </div>
       </div>
 
-      <Receipt::SignatureViewer @value={{@template.signature}} @signatures={{@signatures}} />
+      <Receipt::SignatureViewer @value={{@template.signatureUrl}} @signatures={{@signatures}}
+        @toggleSignature={{this.toggleSignature}} />
     </div>
 
     <div class="bg-white mb-12">
       <div class="flex py-2 px-8 mx-4">
         <h3 class="w-1/2 my-8 text-gray-800 text-lg font-bold">Receipt</h3>
         <div class="w-1/2 my-8">
-          {{#if contentComplete}}
+          {{#if this.receiptInProcess}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 mr-4 relative bg-purple-500 text-white text-center flex justify-center float-right">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{else}}
           <span
-            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-white text-purple-500 text-center flex justify-center float-right border-2 border-purple-500">
+            class="rounded-full inline-block h-5 w-5 items-center mx-2 relative bg-purple-500 text-white text-center flex justify-center float-right">
             {{svg-jar "Confirm" class="w-2 self-center fill-current"}}
           </span>
           {{/if}}
         </div>
       </div>
+
       <div class="flex items-center justify-center pb-8">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
-            <p class="text-grey mb-2">Starting Receipt Stack #</p>
-            <input type="text" value={{@template.stackStartingNumber}}
-              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
-              placeholder="0000000000">
+            <p class="text-gray-800 mb-2">Name</p>
+            <Input type="text" @value={{@template.name}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
+              placeholder="Default" />
           </div>
         </div>
       </div>
@@ -123,37 +125,48 @@
       <div class="flex items-center justify-center pb-8">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
-            <p class="text-grey mb-2">Surrounding Receipt Info</p>
-            <input type="text" value={{@template.stackStartingNumber}}
-              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex font-semibold mt-4"
-              placeholder="VGH2020-#-Can">
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-center pb-8">
-        <div class="w-3/4 flex justify-around">
-          <div class="w-full">
-            <p class="text-grey mb-2">Formatted Receipt Number</p>
-            <p>VGH2020-100000-Can</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex items-center justify-center pb-8">
-        <div class="w-3/4 flex justify-around">
-          <div class="w-full">
-            <p class="text-grey mb-2">Date Format</p>
-
+            <p class="text-gray-800 mb-2">Date Format</p>
             <PowerSelect @options={{this.dateFormats}} @selected={{@template.dateFormat}} @searchEnabled={{false}}
               @onChange={{fn (mut @template.dateFormat)}}
-              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold font"}}
+              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font"}}
               @dropdownClass={{"fonts"}} @placeholder={{"Select a Date format"}} as |date|>
               <span class="text-lg text-left list-item">{{date}}</span>
             </PowerSelect>
           </div>
         </div>
       </div>
+
+      <div class="flex items-center justify-center pb-4">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-gray-800 mb-2">Surrounding Receipt Info</p>
+            <Input type="text" @value={{@template.stackSurrounding}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
+              placeholder="VGH2020-#-Can" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full">
+            <p class="text-gray-800 mb-2">Starting Receipt Stack Number</p>
+            <Input type="text" @value={{@template.stackStartingNumber}}
+              class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
+              placeholder="0000000000" />
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full flex justify-center items-center text-gray-800 mx-4 text-sm">
+            <p>Issue Format</p>
+            <p class="text-white font-semibold opacity-50 bg-purple-500 px-2 py-2 mx-2">{{this.issuedFormat}}</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </form>
 </div>

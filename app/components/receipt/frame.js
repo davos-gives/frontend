@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { DateTime } from 'luxon';
 
 export default class ReceiptFrameComponent extends Component {
   get title() {
@@ -11,6 +12,37 @@ export default class ReceiptFrameComponent extends Component {
 
   get signatureFooter() {
     return this.args.receipt.signatureFooter || 'Jane Smith, CEO, Barks & Meows Shelter';
+  }
+
+  get signatureImage() {
+    return this.args.receipt.signatureUrl || 'https://res.cloudinary.com/davos-gives/image/upload/v1591932357/jes4pc0pjqcw8aerdabl.png';
+  }
+
+  get issuedFormat() {
+    let { stackStartingNumber, stackSurrounding } = this.args.receipt;
+
+    if (!stackStartingNumber && !stackSurrounding) {
+      return "100524"
+    }
+
+    let splitString = stackSurrounding ? stackSurrounding.split("#") : "";
+    return `${splitString[0] ? splitString[0] : ""}${stackStartingNumber ? stackStartingNumber : ""}${splitString[1] ? splitString[1] : ""}`;
+  }
+
+  get formattedDate() {
+    let selectedFormat = this.args.receipt.dateFormat;
+    switch (selectedFormat) {
+      case "MM - DD - YY":
+        return DateTime.local().toFormat("LL' - ' dd ' - ' yy");
+      case "MM / DD / YY":
+        return DateTime.local().toFormat("LL' / ' dd ' / ' yy");
+      case "DD - MM - YY":
+        return DateTime.local().toFormat("dd' - ' LL ' - ' yy");
+      case "DD / MM / YY":
+        return DateTime.local().toFormat("dd' / ' LL ' / ' yy");
+      default:
+        return DateTime.local().toFormat("LL' - ' dd ' - ' yy");
+    }
   }
 
   get frameSource() {
@@ -36,7 +68,7 @@ export default class ReceiptFrameComponent extends Component {
       </div>
       <div class="mx-10 mt-8 py-4">
         <p class="texy-gray-700 leading-normal text-sm" id="description">${this.description}</p>
-        <img id="signature" src="http://localhost:4000/images/signature.png" class="w-32" />
+        <img id="signature" src="${this.signatureImage}" class="w-32" />
         <p class="texy-gray-700 leading-normal text-sm italic" id="signature footer">${this.signatureFooter}</p>
       </div>
     
@@ -59,13 +91,13 @@ export default class ReceiptFrameComponent extends Component {
           </tr>
           <tr class="">
             <td class="w-1/4 px-8 py-1"><span class="uppercase font-thin text-xs quaternary-text">Receipt #</span></td>
-            <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text">#100500<span></td>
+            <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text">${this.issuedFormat}<span></td>
             <td class="w-1/4 px-4 py-1"><span class="uppercase font-thin text-xs quaternary-text">Street and Suite</span></td>
             <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text">305 1823 E Georgia St<span></td>
           </tr>
           <tr class="">
             <td class="w-1/4 px-8 py-1"><span class="uppercase font-thin text-xs quaternary-text">Date of issue</span></td>
-            <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text">8 - 6 - 2020</span></td>
+            <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text">${this.formattedDate}</span></td>
             <td class="w-1/4 px-4 py-1"><span class="uppercase font-thin text-xs quaternary-text">City, Province</span></td>
             <td class="w-1/4 px-4 py-1"><span class="font-bold text-sm quaternary-text capitalize">Vancouver, BC, V5L 2B5<span></td>
           </tr>
@@ -77,7 +109,7 @@ export default class ReceiptFrameComponent extends Component {
           </tr>
           <tr class="">
             <td class="w-1/4 px-8 py-1 pt-6"><span class="uppercase font-thin text-xs quaternary-text">Received on</span></td>
-            <td class="w-1/4 px-4 py-1 pt-6"><span class="font-bold text-sm quaternary-text">2020-04-11T15:52:17-07:00<span></td>
+            <td class="w-1/4 px-4 py-1 pt-6"><span class="font-bold text-sm quaternary-text">${this.formattedDate}<span></td>
             <td class="w-1/4 px-4 py-1 pt-6"><span class="uppercase font-thin text-xs quaternary-text">Amount Received</span></td>
             <td class="w-1/4 px-4 py-1 pt-6"><span class="font-bold text-sm quaternary-text">$15.00<span></td>
           </tr>

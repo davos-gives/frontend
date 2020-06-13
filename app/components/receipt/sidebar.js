@@ -23,12 +23,36 @@ export default class ReceiptSidebarComponent extends Component {
     this.args.template.set('description', html);
   }
 
-  get letterCompleted() {
+  @action
+  toggleSignature(url) {
+    this.args.template.set('signatureUrl', url);
+  }
+
+  get letterInProcess() {
     return (
       (!this.args.template.title || this.args.template.title.length === 0) ||
       (!this.args.template.description || this.args.template.description.length === 0) ||
       (!this.args.template.signatureFooter || this.args.template.signatureFooter.length === 0)
     )
+  }
+
+  get signatureInProcess() {
+    return (!this.args.template.signatureUrl || this.args.template.signatureUrl.length === 0)
+  }
+
+  get receiptInProcess() {
+    return (
+      (!this.args.template.name || this.args.template.name.length === 0) ||
+      (!this.args.template.stackStartingNumber || this.args.template.stackStartingNumber.length === 0) ||
+      (!this.args.template.dateFormat || this.args.template.dateFormat === 0)
+    )
+  }
+
+  get issuedFormat() {
+    let { stackStartingNumber, stackSurrounding } = this.args.template;
+
+    let splitString = stackSurrounding ? stackSurrounding.split("#") : "";
+    return `${splitString[0] ? splitString[0] : ""}${stackStartingNumber ? stackStartingNumber : ""}${splitString[1] ? splitString[1] : ""}`;
   }
 
   @action

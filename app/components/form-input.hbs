@@ -1,6 +1,6 @@
 <div class="w-full mb-2 relative {{if this.focused "focused"}}">
   <Input id={{@field}} @value={{@value}} @focusIn={{this.addFocus}} @focusOut={{this.removeFocus}}
     @type={{if @password "password"}} @required={{true}}
-    class="outline-none w-full border border-solid-grey rounded p-1 mt-4 mb-1 text-gray-600 pl-4 input h-12" />
+    class="outline-none w-full border border-solid-gray rounded p-1 mt-4 mb-1 text-gray-600 pl-4 input h-12" />
   <label for={{@field}} class="text-gray-600 text-sm pl-4 label capitalize">{{@field}}</label>
 </div>

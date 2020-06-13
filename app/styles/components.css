@@ -84,7 +84,6 @@
 }
 
 .font .ember-power-select-selected-item .list-item {
-  font-weight: bold;
   font-size: 0.9rem;
 }
 
@@ -139,6 +138,12 @@
 .fonts .ember-power-select-option:first-of-type {
 }
 
+.organization .ember-power-select-placeholder {
+  color: #718096;
+  margin-left: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
 
 .fonts .ember-power-select-options[role="listbox"] {
   max-height: 15.7em;

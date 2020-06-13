@@ -40,7 +40,6 @@
 
 .focused .input, .input:valid {
   border-color: #6d3eff;
-  font-weight: 600;
 }
 
 input:required {
