@@ -18,6 +18,10 @@ export default class ReceiptFrameComponent extends Component {
     return this.args.receipt.signatureUrl || 'https://res.cloudinary.com/davos-gives/image/upload/v1591932357/jes4pc0pjqcw8aerdabl.png';
   }
 
+  get logoImage() {
+    return this.args.receipt.logoUrl || 'https://res.cloudinary.com/davos-gives/image/upload/v1592165096/barks.png';
+  }
+
   get issuedFormat() {
     let { stackStartingNumber, stackSurrounding } = this.args.receipt;
 
@@ -63,7 +67,7 @@ export default class ReceiptFrameComponent extends Component {
     <div class="receipts">
       <div class="flex h-56 mx-10 justify-between"> 
         <h1 class="primary-text capitalize font-black text-3xl self-end" id="title">${this.title}</h1>
-        <img id="logo" src="http://localhost:4000/images/barks.png" class="w-48 mt-4 self-start"/>
+        <img id="logo" src="${this.logoImage}" class="w-48 mt-4 self-start"/>
     
       </div>
       <div class="mx-10 mt-8 py-4">
@@ -136,7 +140,7 @@ export default class ReceiptFrameComponent extends Component {
             </div>
           </address>
     
-          <img id="logo2" src="http://localhost:4000/images/barks.png" class="h-24 w-auto"/>
+          <img id="logo2" src="${this.logoImage}" class="h-24 w-auto"/>
         </aside>
     </div>
         </main>

@@ -22,21 +22,20 @@ export default function (server) {
 
   server.create('user', { fname: "ian", lname: "knauer", email: "ian.knauer@davos.gives", organization: organization });
 
-  server.create('campaign', { name: "Default", description: "A fallback campaign that catches all unassigned donations", isActive: true, amountEligableForReceipt: 100 });
-
   server.create('donation', { receiptNumber: 1, firstName: "Ian", lastName: "Knauer", paymentAmount: 1300, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
   server.create('donation', { receiptNumber: 2, firstName: "Nancy", lastName: "Kwong", paymentAmount: 15000, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
   server.create('donation', { receiptNumber: 3, firstName: "Eric", lastName: "Huang", paymentAmount: 2335, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
   server.create('donation', { receiptNumber: 4, firstName: "Natalia", lastName: "Escobar", paymentAmount: 4039, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
   server.create('donation', { receiptNumber: 5, firstName: "Julia", lastName: "Baker", paymentAmount: 50313, insertedAt: 1590435939283, url: "demo-receipt.pdf" });
 
-
   server.create('slug', { name: "Christmas Campaign" });
   server.create('slug', { name: "New Shelter" });
 
-  server.create('receipt', { name: "Default Receipt" });
+  let receipt = server.create('receipt', { name: "Default Receipt" });
+
+  server.create('campaign', { name: "Default", description: "A fallback campaign that catches all unassigned donations", isActive: true, amountEligableForReceipt: 100, receipt: receipt });
 
   server.create('signature', { url: 'https://res.cloudinary.com/davos-gives/image/upload/v1591932357/jes4pc0pjqcw8aerdabl.png' });
-
+  server.create('logo', { url: "https://res.cloudinary.com/davos-gives/image/upload/v1592165096/barks.png" });
   // plus whatever default scenario code you want
 }

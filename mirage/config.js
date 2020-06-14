@@ -17,9 +17,11 @@ export default function () {
   this.get('/receipts/:id');
   this.get('/slugs');
 
-  this.get('signatures');
-  this.get('signatures/:id');
+  this.get('/signatures');
+  this.get('/signatures/:id');
   this.post('/signatures');
+
+  this.get('/logos');
 
   this.passthrough("https://api.cloudinary.com/v1_1/davos-gives/image/upload");
 }

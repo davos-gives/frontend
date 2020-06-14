@@ -7,7 +7,7 @@ export default class ReceiptSidebarComponent extends Component {
   dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
   fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"];
 
-  @tracked isContent = true;
+  @tracked isContent = false;
 
   @action
   toggleSidebar() {
@@ -28,6 +28,11 @@ export default class ReceiptSidebarComponent extends Component {
     this.args.template.set('signatureUrl', url);
   }
 
+  @action
+  toggleLogo(url) {
+    this.args.template.set('logoUrl', url);
+  }
+
   get letterInProcess() {
     return (
       (!this.args.template.title || this.args.template.title.length === 0) ||
@@ -46,6 +51,14 @@ export default class ReceiptSidebarComponent extends Component {
       (!this.args.template.stackStartingNumber || this.args.template.stackStartingNumber.length === 0) ||
       (!this.args.template.dateFormat || this.args.template.dateFormat === 0)
     )
+  }
+
+  get logoInProcess() {
+    return (!this.args.template.logoUrl || this.args.template.logoUrl.length === 0)
+  }
+
+  get templateInProcess() {
+    return (!this.args.template.template)
   }
 
   get issuedFormat() {

@@ -1,0 +1,21 @@
+<div class="flex items-center justify-center py-2 pb-6">
+  <div class="w-3/4 flex overflow-hidden flex-wrap flex-col">
+    <div class="flex flex-wrap overflow-hidden">
+      {{#each this.pagedContent as |image|}}
+      {{#if (eq image.url @value)}}
+      <div class="w-24 h-24 border-purple-500 border-b-8 mx-1 my-1 flex items-center shadow bg-white"
+        style="background-image: url({{image.url}}); background-size: contain; background-repeat: no-repeat; background-position: center;">
+      </div>
+      {{else}}
+      <div class="w-24 h-24 mx-1 my-1 flex items-center shadow opacity-50 bg-white"
+        style="background-image: url({{image.url}}); background-size: contain; background-repeat: no-repeat; background-position: center;"
+        {{on "click" (fn @toggle image.url)}}>
+      </div>
+      {{/if}}
+      {{/each}}
+
+    </div>
+
+    <PageNumbers @content={{pagedContent}} />
+  </div>
+</div>

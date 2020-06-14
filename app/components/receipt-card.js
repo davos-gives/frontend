@@ -10,6 +10,15 @@ export default class FormInputComponent extends Component {
     return `Active_donation_bg${imageNumber}`
   }
 
+  get campaigns() {
+    let campaignsCount = this.args.receipt.campaigns.length;
+    if (campaignsCount == 0 || campaignsCount > 1) {
+      return `${campaignsCount} campaigns`;
+    } else {
+      return `${campaignsCount} campaign`;
+    }
+  }
+
   @action
   addEit() {
     this.isEditing = true;

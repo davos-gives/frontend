@@ -30,7 +30,11 @@ export default class IndexController extends Controller {
   }
 
   get showMenu() {
-    if (this.router.currentRoute.name == "signup" || this.router.currentRoute.name == "create-organization") {
+    if (
+      this.router.currentRoute.name == "sign-up" ||
+      this.router.currentRoute.name == "create-organization" ||
+      this.router.currentRoute.name == "log-in"
+    ) {
       return false;
     } else {
       return true;

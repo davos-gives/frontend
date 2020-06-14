@@ -14,7 +14,7 @@
           {{on "click" (fn @submit @changeset)}}>Create
           Account <img src="/img/icons/ChevronWhite.svg" class="w-3 -rotate-90 transform" alt="continue"></button>
         <p type="submit" class="text-purple-500 px-6 py-4 hover:bg-grey-lightest rounded-lg text-xs">Already
-          registered? <button type="submit" class="font-semibold underline">Log in</button> here!</p>
+          registered? <LinkTo @route={{"log-in"}} class="font-semibold underline">Log in</LinkTo> here!</p>
       </div>
     </div>
   </div>
