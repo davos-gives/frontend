@@ -267,9 +267,9 @@
             <p class="text-grey mb-2">Font</p>
             <PowerSelect @options={{this.fonts}} @selected={{@template.font}} @searchEnabled={{false}}
               @onChange={{fn (mut @template.font)}}
-              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold font"}}
+              @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold"}}
               @dropdownClass={{"fonts"}} @placeholder={{"Select a font..."}} as |font|>
-              <span class="text-lg text-left list-item">{{font}}</span>
+              <span class="text-lg text-left list-item" style="{{html-safe-font font}}">{{font}}</span>
             </PowerSelect>
           </div>
         </div>

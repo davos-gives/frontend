@@ -2,13 +2,23 @@
 
 const { MIRAGE_SCENARIO } = process.env;
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     MIRAGE_SCENARIO,
     modulePrefix: 'davos-frontend',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    webFontConfig: {
+      google: {
+        families: ["Open+Sans:100,200,300,400,500,600,700,800,900", "Arvo", "Cardo", "Lato", "Montserrat", "Oswald", "PT Serif", "Raleway", "Roboto"]
+      }
+    },
+    contentSecurityPolicy: {
+      'font-src': "'self' fonts.gstatic.com",
+      'style-src': "'self' fonts.googleapis.com"
+    },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

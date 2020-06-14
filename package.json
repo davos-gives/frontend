@@ -46,6 +46,7 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-uglify": "^3.0.0",
     "ember-cli-update": "^0.54.6",
+    "ember-cli-webfontloader": "^0.4.0",
     "ember-concurrency": "^1.1.7",
     "ember-concurrency-decorators": "^1.0.0",
     "ember-data": "~3.18.0",
@@ -86,6 +87,7 @@
     "@tailwindcss/ui": "^0.3.0",
     "lodash-es": "^4.17.15",
     "luxon": "^1.24.1",
-    "pell": "^1.0.6"
+    "pell": "^1.0.6",
+    "webfontloader": "^1.6.28"
   }
 }

@@ -49,6 +49,10 @@ export default class ReceiptFrameComponent extends Component {
     }
   }
 
+  get font() {
+    return this.args.receipt.font || 'Open Sans';
+  }
+
   get frameSource() {
     return `
     <!DOCTYPE html>
@@ -59,7 +63,9 @@ export default class ReceiptFrameComponent extends Component {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="http://localhost:4000/css/app.css"/>
         <style>
-          
+          .receipts {
+            font-family: ${this.font}
+          }          
         </style>
       </head>
       <body>
