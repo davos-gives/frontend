@@ -16,7 +16,8 @@
       </div>
       <h1 class="w-1/2 text-center pb-4 font-normal mx-auto py-8 text-purple-900 text-4xl">Create Account</h1>
       <div class="flex justify-center">
-        {{#with (changeset @model (fn this.validate)) as |changesetObj|}}
+        {{#with (changeset @model this.AccountValidations) as |changesetObj|}}
+        <span {{did-insert this.validate changesetObj}}></span>
         <SignupForm @changeset={{changesetObj}} @submit={{this.submit}} />
         {{/with}}
       </div>
