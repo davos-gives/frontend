@@ -7,7 +7,9 @@ export default class ReceiptSidebarComponent extends Component {
   dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
   fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"];
 
+  @tracked colourSet = "Golden";
   @tracked isContent = false;
+  @tracked lightMode = false;
 
   @action
   toggleSidebar() {
@@ -124,5 +126,105 @@ export default class ReceiptSidebarComponent extends Component {
     })
   }
 
+  @action
+  toggleLightMode() {
+    this.lightMode = !this.lightMode;
+    this.loadColourSet(this.colourSet);
+  }
 
+  @action
+  loadColourSet(colour) {
+    this.colourSet = colour;
+    if (this.lightMode) {
+      switch (colour) {
+        case "Golden":
+          this.args.template.set('primaryColour', "#E5AD23");
+          this.args.template.set('secondaryColour', "#411E82");
+          this.args.template.set('tertiaryColour', "#f6f4f1");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Ultra Violet":
+          this.args.template.set('primaryColour', "#502BA3");
+          this.args.template.set('secondaryColour', "#3BB7B3");
+          this.args.template.set('tertiaryColour', "#F6F6F6");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Red":
+          this.args.template.set('primaryColour', "#BE1E2D");
+          this.args.template.set('secondaryColour', "#B2A37E");
+          this.args.template.set('tertiaryColour', "#F6F6F6");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Forest":
+          this.args.template.set('primaryColour', "#7F682E");
+          this.args.template.set('secondaryColour', "#509C1F");
+          this.args.template.set('tertiaryColour', "#F2F4F0");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Tangerine":
+          this.args.template.set('primaryColour', "#E9995A");
+          this.args.template.set('secondaryColour', "#411E82");
+          this.args.template.set('tertiaryColour', "#F6F4F1");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Navy Blue":
+          this.args.template.set('primaryColour', "#004A80");
+          this.args.template.set('secondaryColour', "#DFA004");
+          this.args.template.set('tertiaryColour', "#EFF4F6");
+          this.args.template.set('quaternaryColour', "#666271");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+      }
+    } else {
+      switch (colour) {
+        case "Golden":
+          this.args.template.set('primaryColour', "#E5AD23");
+          this.args.template.set('secondaryColour', "#411E82");
+          this.args.template.set('tertiaryColour', "#BB8B0E");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Ultra Violet":
+          this.args.template.set('primaryColour', "#502BA3");
+          this.args.template.set('secondaryColour', "#3BB7B3");
+          this.args.template.set('tertiaryColour', "#411E82");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Red":
+          this.args.template.set('primaryColour', "#BE1E2D");
+          this.args.template.set('secondaryColour', "#B2A37E");
+          this.args.template.set('tertiaryColour', "#93111E");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Forest":
+          this.args.template.set('primaryColour', "#7F682E");
+          this.args.template.set('secondaryColour', "#509C1F");
+          this.args.template.set('tertiaryColour', "#455C36");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Tangerine":
+          this.args.template.set('primaryColour', "#E9995A");
+          this.args.template.set('secondaryColour', "#411E82");
+          this.args.template.set('tertiaryColour', "#DD8A36");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+        case "Navy Blue":
+          this.args.template.set('primaryColour', "#004A80");
+          this.args.template.set('secondaryColour', "#DFA004");
+          this.args.template.set('tertiaryColour', "#056DA5");
+          this.args.template.set('quaternaryColour', "#FFFFFF");
+          this.args.template.set('quinaryColour', "#666271");
+          break;
+      }
+    }
+  }
 }

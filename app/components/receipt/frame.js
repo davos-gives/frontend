@@ -53,6 +53,26 @@ export default class ReceiptFrameComponent extends Component {
     return this.args.receipt.font || 'Open Sans';
   }
 
+  get primaryColour() {
+    return this.args.receipt.primaryColour || "#E5AD23";
+  }
+
+  get secondaryColour() {
+    return this.args.receipt.secondaryColour || "#411E82;";
+  }
+
+  get tertiaryColour() {
+    return this.args.receipt.tertiaryColour || "#BB8B0E";
+  }
+
+  get quaternaryColour() {
+    return this.args.receipt.quaternaryColour || "#FFFFFF";
+  }
+
+  get quniaryColour() {
+    return this.args.receipt.quniaryColour || "#666271";
+  }
+
   get frameSource() {
     return `
     <!DOCTYPE html>
@@ -63,6 +83,15 @@ export default class ReceiptFrameComponent extends Component {
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="http://localhost:4000/css/app.css"/>
         <style>
+
+        :root {
+          --primary: ${this.primaryColour};
+          --secondary: ${this.secondaryColour};
+          --tertiary: ${this.tertiaryColour};
+          --quaternary: ${this.quaternaryColour};
+          --quinary: ${this.quniaryColour};
+          --font: "${this.font}";
+        }
           .receipts {
             font-family: ${this.font}
           }          

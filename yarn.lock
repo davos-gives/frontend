@@ -6142,6 +6142,14 @@ ember-changeset@^3.5.4, ember-changeset@poteto/ember-changeset#sn/route-transiti
     ember-cli-babel "^7.19.0"
     validated-changeset "~0.6.7"
 
+ember-checkbox-with-label@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/ember-checkbox-with-label/-/ember-checkbox-with-label-2.0.0.tgz#73967e97e1353c087d05002116009839f7418ee5"
+  integrity sha512-ulIB6WSoRz17LcwFzuz9+onTilhV4iNrv1HW0DkDyxNcZ1Sf5TV1JDXcKW/ISbmyoLMNBRXoE4bbIxMimIYJvw==
+  dependencies:
+    ember-cli-babel "^7.1.2"
+    ember-cli-htmlbars "^3.0.0"
+
 ember-cli-app-version@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ember-cli-app-version/-/ember-cli-app-version-3.2.0.tgz#7b9ad0e1b63ae0518648356ee24c703e922bc26e"
@@ -6307,7 +6315,7 @@ ember-cli-htmlbars@^2.0.3:
     json-stable-stringify "^1.0.0"
     strip-bom "^3.0.0"
 
-ember-cli-htmlbars@^3.0.1:
+ember-cli-htmlbars@^3.0.0, ember-cli-htmlbars@^3.0.1:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-3.1.0.tgz#87806c2a0bca2ab52d4fb8af8e2215c1ca718a99"
   integrity sha512-cgvRJM73IT0aePUG7oQ/afB7vSRBV3N0wu9BrWhHX2zkR7A7cUBI7KC9VPk6tbctCXoM7BRGsCC4aIjF7yrfXA==

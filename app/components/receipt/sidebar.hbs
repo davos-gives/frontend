@@ -264,7 +264,7 @@
       <div class="flex items-center justify-center pb-8">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
-            <p class="text-grey mb-2">Font</p>
+            <p class="text-gray-800 mb-2">Font</p>
             <PowerSelect @options={{this.fonts}} @selected={{@template.font}} @searchEnabled={{false}}
               @onChange={{fn (mut @template.font)}}
               @triggerClass={{"px-4 w-full text-grey rounded-lg bg-white border-grey-light py-2 text-sm font-bold"}}
@@ -278,20 +278,16 @@
       <div class="flex items-center justify-center pb-8">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
-            <p class="text-grey mb-2">Colour Collections</p>
-            <Receipt::TemplateColourSelect @value={{@template.colourSet}} />
+            <p class="text-gray-800 mb-2">Colour Collections</p>
+            <Receipt::TemplateColourSelect @value={{this.colourSet}} @loadColourSet={{this.loadColourSet}} />
             <div class="flex items-center justify-center">
               <div class="w-3/4 flex justify-around">
-                <h3 class="w-1/3 text-grey text-xl font-bold capitalize border-b border-gray-500 pb-4">
-                  Golden
+                <h3 class="text-gray-800 text-lg font-bold capitalize border-b border-gray-500">
+                  {{this.colourSet}}
                 </h3>
-                <div class="md:flex md:items-center mb-6">
-                  <label class="block text-gray-500 font-bold">
-                    <input class="mr-2 leading-tight" type="checkbox">
-                    <span class="text-sm">
-                      Light Mode
-                    </span>
-                  </label>
+                <div class="md:flex md:items-center">
+                  <CheckboxWithLabel @checked={{this.lightMode}} @text={{"Light Mode"}}
+                    @update={{action this.toggleLightMode}} />
                 </div>
               </div>
             </div>
@@ -306,8 +302,7 @@
         quaternaryColour=this.changeset.quaternaryColour
         quinaryColour=this.changeset.quinaryColour
         onChange=(action "updateManualColour")
-      }}
-      </div>
+      }} </div>
     </div>
 
   </form>
