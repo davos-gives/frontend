@@ -294,15 +294,11 @@
           </div>
         </div>
       </div>
-      <div class="mt-6">
-        {{manual-colour-picker
-        primaryColour=this.changeset.primaryColour
-        secondaryColour=this.changeset.secondaryColour
-        tertiaryColour=this.changeset.tertiaryColour
-        quaternaryColour=this.changeset.quaternaryColour
-        quinaryColour=this.changeset.quinaryColour
-        onChange=(action "updateManualColour")
-      }} </div>
+      <div class="mt-6" {{did-insert (fn this.loadColourSet "Golden")}}>
+        <Receipt::ManualColourPicker @primaryColour={{@template.primaryColour}}
+          @secondaryColour={{@template.secondaryColour}} @tertiaryColour={{@template.tertiaryColour}}
+          @quaternaryColour={{@template.quaternaryColour}} @quinaryColour={{@template.quinaryColour}} />
+      </div>
     </div>
 
   </form>

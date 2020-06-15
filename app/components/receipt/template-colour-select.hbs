@@ -1,21 +1,21 @@
 <div class="flex items-center justify-center">
   <div class="w-3/4 flex justify-around">
     <img class="h-24 opacity-50 {{if (eq @value "Golden") "opacity-100"}}" src="/img/Colours-Golden.png"
-      {{on "click" (fn @loadColourSet "Golden")}}>
+      {{on "click" (action @loadColourSet "Golden")}}>
     <img class="h-24 opacity-50 {{if (eq @value "Ultra Violet") "opacity-100"}}" src="/img/Colours-Ultra_Violet.png"
-      {{on "click" (fn @loadColourSet "Ultra Violet")}} />
+      {{on "click" (action @loadColourSet "Ultra Violet")}} />
     <img class="h-24 opacity-50 {{if (eq @value "Red") "opacity-100"}}" src="/img/Colours-Red.png"
-      {{on "click" (fn @loadColourSet "Red")}} />
+      {{on "click" (action @loadColourSet "Red")}} />
   </div>
 </div>
 
 <div class="flex items-center justify-center pb-8">
   <div class="w-3/4 flex justify-around">
     <img class="h-24 opacity-50 {{if (eq @value "Forest") "opacity-100"}}" src="/img/Colours-Forest.png"
-      {{on "click" (fn @loadColourSet "Forest")}} />
+      {{on "click" (action @loadColourSet "Forest")}} />
     <img class="h-24 opacity-50 {{if (eq @value "Tangerine") "opacity-100"}}" src="/img/Colours-Tangerine.png"
-      {{on "click" (fn @loadColourSet "Tangerine")}} />
+      {{on "click" (action @loadColourSet "Tangerine")}} />
     <img class="h-24 opacity-50 {{if (eq @value "Navy Blue") "opacity-100"}}" src="/img/Colours-Navy_Blue.png"
-      {{on "click" (fn @loadColourSet "Navy Blue")}} />
+      {{on "click" (action @loadColourSet "Navy Blue")}} />
   </div>
 </div>

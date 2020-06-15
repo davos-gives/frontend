@@ -125,7 +125,7 @@ export default class ReceiptFrameComponent extends Component {
           <tr class="">
             <td class="w-1/4 px-8 pt-8 pb-1"><span class="uppercase font-thin text-xs quaternary-text">Charitable Regis #</span></td>
             <td class="w-1/4 px-4 pt-8 pb-1"><span class="font-bold text-sm quaternary-text">#119219814 RR 0001<span></td>
-            <td class="w-1/4 px-4 pt-8 pb-1"><span class="uppercase font-thin text-xs text-white">Name</span></td>
+            <td class="w-1/4 px-4 pt-8 pb-1"><span class="uppercase font-thin text-xs quaternary-text">Name</span></td>
             <td class="w-1/4 px-4 pt-8 pb-1"><span class="font-bold text-sm quaternary-text capitalize">ian knauer<span></td>
           </tr>
           <tr class="">

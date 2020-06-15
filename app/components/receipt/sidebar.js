@@ -16,11 +16,6 @@ export default class ReceiptSidebarComponent extends Component {
     this.isContent = !this.isContent;
   }
 
-  @action
-  updateManualColour() {
-    console.log("updating colour from the manual picker");
-  }
-
   updateBody(html) {
     this.args.template.set('description', html);
   }
@@ -130,6 +125,13 @@ export default class ReceiptSidebarComponent extends Component {
   toggleLightMode() {
     this.lightMode = !this.lightMode;
     this.loadColourSet(this.colourSet);
+  }
+
+  @action
+  updateManualColour(colour, set) {
+    this.colourSet = "Custom";
+    console.log(colour, set);
+    this.args.template.set(colour, set);
   }
 
   @action
