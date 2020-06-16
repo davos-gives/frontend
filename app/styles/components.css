@@ -28,6 +28,15 @@
   font-style:normal;
 }
 
+.ember-power-select-trigger {
+  border: 1px solid #e2e8f0;;
+}
+
+.ember-power-select-placeholder {
+  color: #e2e8f0;
+  font-size: 1rem;
+}
+
 .ember-power-select-trigger:focus, .ember-power-select-trigger--active {
   border-bottom: none;
 }

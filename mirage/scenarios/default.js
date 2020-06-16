@@ -31,7 +31,7 @@ export default function (server) {
   server.create('slug', { name: "Christmas Campaign" });
   server.create('slug', { name: "New Shelter" });
 
-  let receipt = server.create('receipt', { name: "Default Receipt" });
+  let receipt = server.create('receipt', { name: "Default Receipt", published: true });
 
   server.create('campaign', { name: "Default", description: "A fallback campaign that catches all unassigned donations", isActive: true, amountEligableForReceipt: 100, receipt: receipt });
 

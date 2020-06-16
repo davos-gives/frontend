@@ -4,5 +4,6 @@ export default class ReceiptModel extends Model {
   @attr name;
   @attr description;
   @attr title;
+  @attr published;
   @hasMany('campaign') campaigns;
 }

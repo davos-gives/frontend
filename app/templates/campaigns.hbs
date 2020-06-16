@@ -58,7 +58,7 @@
         </LinkTo>
       </div>
       <div class="mt-16 flex mr-24 flex-wrap">
-        {{#each @model.receipts as |receipt|}}
+        {{#each this.activeReceipts as |receipt|}}
         <ReceiptCard @receipt={{receipt}} />
         {{/each}}
       </div>

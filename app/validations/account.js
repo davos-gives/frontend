@@ -14,5 +14,5 @@ export default {
   password: [
     validatePresence(true)
   ],
-  passwordConfirmation: validateConfirmation({ on: 'password' })
+  passwordConfirmation: [validateConfirmation({ on: 'password' }), validatePresence(true)]
 };
