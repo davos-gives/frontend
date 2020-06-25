@@ -7,7 +7,7 @@ export default class ReceiptFrameComponent extends Component {
   }
 
   get description() {
-    return this.args.receipt.description || 'After 18 years in the same location, the Barks & Moews Shelter faced a move. In addition to finding a suitable location that will permit us to continue our work, major renovations and modification may well be required. Your assistance to our organization is greatly appreciated. You are helping our shelter reach our goal; our survival is in your hands.';
+    return this.args.receipt.description || 'After 18 years in the same location, the Barks & Meows Shelter faced a move. In addition to finding a suitable location that will permit us to continue our work, major renovations and modification may well be required. Your assistance to our organization is greatly appreciated. You are helping our shelter reach our goal; our survival is in your hands.';
   }
 
   get signatureFooter() {
