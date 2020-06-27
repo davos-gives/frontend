@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
-import CharityValidations from '../validations/charity';
+import CharityValidations from '../../validations/charity';
 
 export default class CreateOrganizationController extends Controller {
   CharityValidations = CharityValidations;

@@ -2,6 +2,6 @@ import Route from '@ember/routing/route';
 
 export default class SignupRoute extends Route {
   model() {
-    return this.store.createRecord('user');
+    return this.store.createRecord('registration');
   }
 }
