@@ -15,8 +15,12 @@ module.exports = function (environment) {
       }
     },
     contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-eval' *.googleapis.com maps.gstatic.com",
       'font-src': "'self' fonts.gstatic.com",
-      'style-src': "'self' fonts.googleapis.com"
+      'connect-src': "'self' maps.gstatic.com",
+      'img-src': "'self' *.googleapis.com maps.gstatic.com csi.gstatic.com data:",
+      'style-src': "'self' 'unsafe-inline' fonts.googleapis.com maps.gstatic.com assets-cdn.github.com"
     },
 
     EmberENV: {
@@ -62,6 +66,11 @@ module.exports = function (environment) {
   //   };
   //   // here you can enable a production-specific feature
   // }
+
+  ENV['place-autocomplete'] = {
+    exclude: true,
+    key: 'AIzaSyBM2pbxy3BErdqqG6ANJYvMK9HtEamKUzs',
+  };
 
   return ENV;
 };

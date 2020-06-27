@@ -1,4 +1,6 @@
 export default function () {
+  this.namespace = 'api/v2';
+
   this.get('/users');
 
   this.get('/users/me', (schema, request) => {
@@ -36,4 +38,6 @@ export default function () {
 
 
   this.passthrough("https://api.cloudinary.com/v1_1/davos-gives/image/upload");
+  this.passthrough("https://places-dsn.algolia.net/*");
+  this.passthrough("*");
 }

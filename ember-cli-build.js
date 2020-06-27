@@ -19,6 +19,13 @@ module.exports = function (defaults) {
           ...isProduction ? [] : []
         ]
       }
+    }, autoImport: {
+      webpack: {
+        module: {
+          // to make this work, i must for some reason I don't understand, duplicate this rule.
+          rules: [],
+        },
+      }
     }
   });
   return app.toTree();
