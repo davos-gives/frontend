@@ -18,7 +18,7 @@ export default function (server) {
     scenario(server);
   }
 
-  const organization = server.create('organization', { name: "Barks and Meows Shelter", address1: "1823 East Georiga Street", address2: "305", city: "Vancouver", Province: "British Columbia", postalCode: "V5L2B5", charitableNumber: 12345, nationId: "barksmeows", category: "health" });
+  const organization = server.create('organization', { name: "Barks and Meows Shelter", address1: "1823 East Georiga Street", address2: "305", city: "Vancouver", Province: "British Columbia", postalCode: "V5L2B5", charitableNumber: 12345, nationbuilderId: "barksmeows", category: "health" });
 
   server.create('user', { fname: "ian", lname: "knauer", email: "ian.knauer@davos.gives", organization: organization });
 

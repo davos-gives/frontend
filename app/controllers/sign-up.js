@@ -23,11 +23,10 @@ export default class SignupController extends Controller {
         data["password_confirmation"] = passwordConfirmation;
         await this.makeRequest(data)
           .then(response => response.json())
-          .then(data => console.log(data));
         //deal with errors!
 
         await this.session.authenticate('authenticator:oauth2', email, password);
-        this.router.transitionTo('create-organization');
+        this.router.transitionTo('authenticated.create-organization');
       } catch (error) {
         console.log("something has gone terrible wrong!")
       }

@@ -11,8 +11,8 @@ export default class CreateOrganizationController extends Controller {
   @action
   submit(changeset) {
     if (changeset.isValid) {
-      return changeset.save().then(() => {
-        this.router.transitionTo('campaigns');
+      return changeset.save().then((organization) => {
+        window.location = `http://localhost:4000/auth?organization_id=${organization.id}`
       });
     }
   }

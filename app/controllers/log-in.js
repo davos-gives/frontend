@@ -18,7 +18,7 @@ export default class LoginController extends Controller {
     }
 
     if (this.session.isAuthenticated) {
-      this.router.transitionTo('authenticated.campaigns')
+      this.router.transitionTo('authenticated.create-organization')
     }
   }
 }

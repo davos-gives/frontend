@@ -2,9 +2,9 @@
   <div class="py-8 relative">
     <FormInput @value={{@changeset.name}} @field={{"Charity Name"}} />
     <p id="message">{{message}}</p>
-    <SearchInput @value={{@changeset.address}} @field={{"Address"}} />
+    <SearchInput @value={{@changeset.address}} @field={{"Address"}} @changeset={{@changeset}} />
     <FormInput @value={{@changeset.charitableNumber}} @field={{"Registered Charitable Number"}} />
-    <FormInput @value={{@changeset.nationId}} @field={{"Nation"}} />
+    <FormInput @value={{@changeset.nationbuilderId}} @field={{"Nation"}} />
     {{!-- <PowerSelect @options={{this.purpose}} @selected={{@changeset.category}} @searchEnabled={{false}}
       @onChange={{fn (mut @changeset.category)}}
       @triggerClass={{"px-4 w-full text-gray-600 input bg-white border-gray-300 py-2 text-sm font mt-2"}}
