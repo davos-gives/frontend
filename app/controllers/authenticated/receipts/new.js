@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 export default class ReceiptsNewController extends Controller {
   @service session;
   @service currentUser;
+  @service router;
 
   @tracked sidebarVisible = false;
   @tracked subMenuOpen = false;
@@ -23,5 +24,11 @@ export default class ReceiptsNewController extends Controller {
   @action
   invalidateSession() {
     this.session.invalidate();
+  }
+
+  @action
+  async save(receipt) {
+    await receipt.save();
+    this.router.transitionTo('authenticated.campaigns');
   }
 }

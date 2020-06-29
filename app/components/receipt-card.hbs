@@ -20,7 +20,7 @@
           {{@receipt.name}}
         </p>
         <p class="font-light text-grey-card mb-4" data-test-id="campaign name">
-          Created on May 17th, 2020
+          Created on {{date-format @receipt.insertedAt "MMM D, YYYY"}}
         </p>
         <span class="text-left font-sm capitalize text-grey-card-2 pt-3" data-test-id="campaign frequency">
           {{!-- {{@campaign.description}} --}}

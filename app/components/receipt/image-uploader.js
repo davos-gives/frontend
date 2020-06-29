@@ -7,7 +7,6 @@ export default class ImageUploaderComponent extends Component {
   @service store;
 
   get currentModel() {
-    debugger;
     return this.args.model;
   }
 

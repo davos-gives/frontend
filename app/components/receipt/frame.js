@@ -15,7 +15,7 @@ export default class ReceiptFrameComponent extends Component {
   }
 
   get signatureImage() {
-    return this.args.receipt.signatureUrl || 'https://res.cloudinary.com/davos-gives/image/upload/v1591932357/jes4pc0pjqcw8aerdabl.png';
+    return this.args.receipt.signatureUrl || 'http://res.cloudinary.com/davos-gives/image/upload/v1593393887/vv9bkhd0g33iii1m5iqz.png';
   }
 
   get logoImage() {

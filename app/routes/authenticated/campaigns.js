@@ -6,7 +6,7 @@ export default class IndexRoute extends Route {
     return RSVP.hash({
       campaigns: this.store.findAll('campaign'),
       donations: this.store.findAll('donation'),
-      receipts: this.store.findAll('receipt'),
+      receipts: this.store.findAll('receipt-template'),
       campaign: this.store.createRecord('campaign'),
       slugs: this.store.findAll('slug')
     });
