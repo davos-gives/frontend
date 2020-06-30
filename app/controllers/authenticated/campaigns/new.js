@@ -20,22 +20,23 @@ export default class CampaignsNewController extends Controller {
 
   @action
   cancel() {
-    this.router.transitionTo('campaigns.index');
+    this.router.transitionTo('authenticated.campaigns');
   }
 
   @action
   save(campaign) {
     campaign.isActive = true;
     campaign.save().then(() => {
-      this.router.transitionTo('campaigns.index');
+      this.router.transitionTo('authenticated.campaigns');
     })
   }
 
   @action
-  addTrackedParams(_element, [object]) {
+  async addTrackedParams(_element, [object]) {
+    let template = await this.store.findRecord('receipt-template', this.receiptId)
     object.set('slug', this.slug)
     object.set('amountEligableForReceipt', this.amountEligableForReceipt);
-    object.set('receipt', this.store.findRecord('receipt', this.receiptId));
+    object.set('receiptTemplate', template);
     return object;
   }
 

@@ -8,4 +8,6 @@ export default class CampaignModel extends Model {
   @attr receiptId;
   @attr amountEligableForReceipt;
   @attr('boolean') isActive;
+
+  @belongsTo('receipt-template') receiptTemplate;
 }

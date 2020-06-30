@@ -54,8 +54,8 @@
         </Textarea>
       </div>
       <div class="mt-4 flex borderless-search">
-        <PowerSelect @searchEnabled={{true}} @selected={{@campaign.receipt}} @options={{@receipts}} @searchField="name"
-          @placeholder="Receipt Name" @onChange={{fn (mut @campaign.receipt)}} as |receipt|>
+        <PowerSelect @searchEnabled={{true}} @selected={{@campaign.receiptTemplate}} @options={{@receipts}}
+          @searchField="name" @placeholder="Receipt Name" @onChange={{fn (mut @campaign.receiptTemplate)}} as |receipt|>
           {{receipt.name}}
         </PowerSelect>
       </div>
