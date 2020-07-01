@@ -48,8 +48,8 @@
                     class="h-10 w-10 rounded-full flex items-center justify-center rounded-full uppercase text-sm bg-purple-300">{{icon-creator receipt.firstName}}{{icon-creator receipt.lastName}}</span>
                 </div>
                 <div class="ml-4">
-                  <div class="text-sm leading-5 font-medium text-gray-900">{{receipt.firstName}}
-                    {{receipt.lastName}}</div>
+                  <div class="text-sm leading-5 font-medium text-gray-900">{{receipt.fName}}
+                    {{receipt.lName}}</div>
                   <div class="text-sm leading-5 text-gray-500">{{receipt.email}}</div>
                 </div>
               </div>
@@ -65,8 +65,8 @@
             </td>
             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium">
               <div class="justify-between flex group-hover:block w-12">
-                <a href={{receipt.url}} target="_blank"
-                  class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+                <a target="_blank" class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase"
+                  {{on "click" (fn this.downloadReceipt receipt)}}>
                   {{svg-jar "Download" class="h-full w-full fill-current"}}
                 </a>
                 <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">

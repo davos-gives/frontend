@@ -16,4 +16,11 @@ export default class ReceiptsComponent extends Component {
       });
     }
   }
+
+  downloadReceipt(receipt) {
+    receipt.downloadReceipt().then(response => {
+      console.log(response.data.attributes["receipt-binary"]);
+      window.open("data:application/pdf;base64," + encodeURI(response.data.attributes["receipt-binary"]))
+    })
+  }
 }
