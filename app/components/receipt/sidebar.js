@@ -7,7 +7,7 @@ export default class ReceiptSidebarComponent extends Component {
   dateFormats = ["MM / DD / YY", "MM - DD - YY", "DD / MM / YY", "DD - MM - YY"];
   fonts = ["Arvo", "Cardo", "Lato", "Lora", "Montserrat", "Oswald", "Open Sans", "PT Serif", "Raleway", "Roboto"];
 
-  @tracked colourSet = "Golden";
+  @tracked colourSet = "Custom";
   @tracked isContent = false;
   @tracked lightMode = false;
 
@@ -131,7 +131,6 @@ export default class ReceiptSidebarComponent extends Component {
   @action
   updateManualColour(colour, set) {
     this.colourSet = "Custom";
-    console.log(colour, set);
     this.args.template.set(colour, set);
   }
 
