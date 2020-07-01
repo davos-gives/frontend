@@ -1,7 +1,22 @@
 import Component from '@glimmer/component';
 import { DateTime } from 'luxon';
+import { action } from '@ember/object';
 
 export default class ReceiptFrameComponent extends Component {
+
+  @action
+  loadChanges() {
+    // window.addEventListener('message', function (event) {
+    //   console.log('The iframe says:' + event.data);
+    // });
+
+    setTimeout(() => {
+      var iframe = document.getElementById('my-iframe');
+      iframe.contentWindow.postMessage(this.args.receipt.changes, '*');
+      this.loadChanges();
+    }, 5000);
+  }
+
   get title() {
     return this.args.receipt.title || 'Help us find a new home';
   }
@@ -74,6 +89,11 @@ export default class ReceiptFrameComponent extends Component {
   }
 
   get frameSource() {
+    return this.args.receipt.templateCode;
+  }
+
+  //Remove once new route is loading in computed template.
+  get oldTemplate() {
     return `
     <!DOCTYPE html>
     <html lang="en">
@@ -184,6 +204,5 @@ export default class ReceiptFrameComponent extends Component {
     
     `
   }
-
 
 }

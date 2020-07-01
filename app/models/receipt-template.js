@@ -16,6 +16,7 @@ export default class ReceiptTemplateModel extends Model {
   @attr quaternaryColour;
   @attr quinaryColour;
   @attr insertedAt;
+  @attr templateCode;
 
   @hasMany('campaign') campaigns;
 }

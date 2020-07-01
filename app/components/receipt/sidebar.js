@@ -60,15 +60,15 @@ export default class ReceiptSidebarComponent extends Component {
 
   get issuedFormat() {
     let { stackStartingNumber, stackSurrounding } = this.args.template;
-
     let splitString = stackSurrounding ? stackSurrounding.split("#") : "";
     return `${splitString[0] ? splitString[0] : ""}${stackStartingNumber ? stackStartingNumber : ""}${splitString[1] ? splitString[1] : ""}`;
   }
 
   @action
-  initPell() {
-    init({
+  async initPell() {
+    await init({
       element: document.getElementById('description'),
+
       onChange: html => {
         this.updateBody(html);
       },
@@ -118,7 +118,8 @@ export default class ReceiptSidebarComponent extends Component {
           result: () => exec('justifyFull')
         }
       ]
-    })
+    });
+    document.getElementsByClassName('pell-content')[0].innerHTML = this.args.template.description ? this.args.template.description : "";
   }
 
   @action
