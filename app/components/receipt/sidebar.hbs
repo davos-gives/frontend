@@ -136,13 +136,15 @@
         </div>
       </div>
 
+      {{#if @isNew}}
+
       <div class="flex items-center justify-center pb-4">
         <div class="w-3/4 flex justify-around">
           <div class="w-full">
             <p class="text-gray-800 mb-2">Surrounding Receipt Info</p>
             <Input type="text" @value={{@template.stackSurrounding}}
               class="w-full border border-grey py-2 px-4 text-grey-dark rounded-lg flex mt-4 appearance-none focus:outline-none focus:border-purple-500 focus:shadow-none"
-              placeholder="VGH2020-#-Can" />
+              placeholder="Barks-#-Can" />
           </div>
         </div>
       </div>
@@ -166,7 +168,19 @@
           </div>
         </div>
       </div>
+      {{else}}
 
+      <div class="flex items-center justify-center pb-8">
+        <div class="w-3/4 flex justify-around">
+          <div class="w-full flex justify-center items-center text-gray-800 mx-4 text-sm">
+            <p>Last Issued Receipt</p>
+            <p class="text-white font-semibold opacity-50 bg-purple-500 px-2 py-2 mx-2">
+              {{@template.receiptStack.prefix}}{{@template.receiptStack.currentNumber}}{{@template.receiptStack.suffix}}
+            </p>
+          </div>
+        </div>
+      </div>
+      {{/if}}
     </div>
   </form>
 </div>

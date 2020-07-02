@@ -1,7 +1,7 @@
-{{#with (changeset @model.receipt) as |receipt|}}
+{{#with (changeset @model.receipt this.templateValidations) as |receipt|}}
 <div class="flex">
   <Receipt::Sidebar @template={{receipt}} @visible={{true}} @saved={{saved}} @updateTemplate={{true}}
-    @saveChanges={{true}} @toggleSidebar={{this.toggleSidebar}} @signatures={{@model.signatures}}
+    @saveChanges={{true}} @toggleSidebar={{this.toggleSidebar}} @signatures={{@model.signatures}} @isNew={{false}}
     @logos={{@model.logos}} class="flex-0" />
   <div class="flex-grow">
     <div class="relative z-20 flex-shrink-0 flex h-16">
@@ -45,7 +45,7 @@
           </div>
           <div>
             <button {{on "click" (fn this.save receipt)}}
-              class="self-center py-2 text-white rounded-full border border-purple-500 bg-purple-500 px-4 rounded-full text-center text-sm float-right self-center mx-1">
+              class="self-center py-2 text-white rounded-full border border-purple-500 bg-purple-500 px-4 rounded-full text-center text-sm float-right self-center mx-1 {{if receipt.isInvalid "opacity-50 cursor-not-allowed"}}">
               Publish
             </button>
           </div>

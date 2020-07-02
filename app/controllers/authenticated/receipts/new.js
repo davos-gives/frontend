@@ -2,8 +2,11 @@ import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
+import templateValidations from '../../../validations/template';
 
 export default class ReceiptsNewController extends Controller {
+  templateValidations = templateValidations;
+
   @service session;
   @service currentUser;
   @service router;
@@ -24,6 +27,11 @@ export default class ReceiptsNewController extends Controller {
   @action
   invalidateSession() {
     this.session.invalidate();
+  }
+
+  @action
+  validate(_element, [object]) {
+    return object.validate();
   }
 
   @action

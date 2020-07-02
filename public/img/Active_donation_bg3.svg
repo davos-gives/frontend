@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 180" xml:space="preserve"  style="enable-background:new 0 0 410 180;">
   <defs/>
   <g id="Layer_1">
-    <path class="st90" d="M410 180V0H265.9L225 74.4c-7.5 13.6-16.6 26.8-27.8 40.4l-6 11.7c-8.7 17.4-17.7 35.4-25.7 53.5H410zM0 0v109.8C12.8 86 24.9 62.5 36.3 39.2L59.3 0H0z"/>
+    <path style="fill: #d69e2e;" class="st90" d="M410 180V0H265.9L225 74.4c-7.5 13.6-16.6 26.8-27.8 40.4l-6 11.7c-8.7 17.4-17.7 35.4-25.7 53.5H410zM0 0v109.8C12.8 86 24.9 62.5 36.3 39.2L59.3 0H0z"/>
   </g>
 </svg>

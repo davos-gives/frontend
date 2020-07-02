@@ -6,7 +6,7 @@ export default DS.Model.extend({
   receiptNumber: attr('string'),
   firstName: attr('string'),
   lastName: attr('string'),
-  amountInCents: attr(),
+  amountEligableForTaxPurposes: attr(),
   insertedAt: attr(),
 
   downloadReceipt: memberAction({

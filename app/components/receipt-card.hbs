@@ -9,7 +9,10 @@
     {{else}}
     <div class="w-full {{if this.isEditing "z-20 relative"}} flex text-red-800 overflow-hidden h-48"
       data-test-id="default image">
-      {{svg-jar this.defaultImage class="object-cover fill-current object-top"}}
+
+      <img src="/img/Active_donation_bg1.svg"
+        class="object-cover stroke-current object-top text-red-800 w-full h-full" />
+      {{!-- {{svg-jar this.defaultImage class="object-cover fill-current object-top"}} --}}
     </div>
     {{/if}}
 
