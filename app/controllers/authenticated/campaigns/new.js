@@ -17,6 +17,7 @@ export default class CampaignsNewController extends Controller {
 
   @service router;
   @service store;
+  @service notifications;
 
   @action
   cancel() {
@@ -27,6 +28,10 @@ export default class CampaignsNewController extends Controller {
   save(campaign) {
     campaign.isActive = true;
     campaign.save().then(() => {
+      this.notifications.success('Campaign Successfully Created', {
+        autoClear: true,
+        clearDuration: 5000
+      });
       this.router.transitionTo('authenticated.campaigns');
     })
   }

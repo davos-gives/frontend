@@ -9,6 +9,7 @@ export default class ReceiptsEditController extends Controller {
   @service session;
   @service currentUser;
   @service router;
+  @service notifications;
 
   @tracked sidebarVisible = false;
   @tracked subMenuOpen = false;
@@ -31,6 +32,10 @@ export default class ReceiptsEditController extends Controller {
   @action
   async save(receipt) {
     await receipt.save();
+    this.notifications.success('Template Successfully Updated', {
+      autoClear: true,
+      clearDuration: 5000
+    });
     this.router.transitionTo('authenticated.campaigns');
   }
 }

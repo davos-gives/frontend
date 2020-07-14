@@ -10,4 +10,7 @@ export default class OrganizationModel extends Model {
   @attr postalCode;
   @attr charitableNumber;
   @attr nationbuilderId;
+  @attr email;
+  @attr phone;
+  @attr website;
 }

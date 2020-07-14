@@ -4,8 +4,11 @@ import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 
 export default class AccountFormComponent extends Component {
+
+  @service notifications;
 
   constructor() {
     super(...arguments);
@@ -40,6 +43,11 @@ export default class AccountFormComponent extends Component {
       if (this.organization.changes.length > 0) {
         await this.organization.save();
       }
+
+      this.notifications.success('Organization Successfully Updated', {
+        autoClear: true,
+        clearDuration: 5000
+      });
     }
   }
 

@@ -10,6 +10,7 @@ export default class ReceiptsNewController extends Controller {
   @service session;
   @service currentUser;
   @service router;
+  @service notifications;
 
   @tracked sidebarVisible = false;
   @tracked subMenuOpen = false;
@@ -54,6 +55,12 @@ export default class ReceiptsNewController extends Controller {
       });
 
     await receiptStack.save();
+    this.notifications.success('Template Successfully Created', {
+      autoClear: true,
+      clearDuration: 5000
+    });
+
+
 
     this.router.transitionTo('authenticated.campaigns');
   }

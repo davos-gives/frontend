@@ -68,3 +68,11 @@ input:required {
   width: 1000px;
   height: 1200px;
 }
+
+.c-notification__svg {
+  margin-left: 9px;
+}
+
+.c-notification__close .c-notification__svg {
+  padding-top: 5px;
+}
