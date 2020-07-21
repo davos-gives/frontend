@@ -69,7 +69,8 @@
                   {{on "click" (fn this.downloadReceipt receipt)}}>
                   {{svg-jar "Download" class="h-full w-full fill-current"}}
                 </a>
-                <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase">
+                <button class="text-gray-400 w-4 h-4 flex items-center justify-center rounded-full uppercase"
+                  {{on "click" (fn this.resendReceipt receipt)}}>
                   {{svg-jar "Redo" class="h-full w-full fill-current"}}
                 </button>
               </div>

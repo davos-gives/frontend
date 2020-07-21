@@ -16,4 +16,12 @@ export default DS.Model.extend({
       console.log(attributes);
     }
   }),
+
+  resendReceipt: memberAction({
+    path: 'resend',
+    type: 'get',
+    before(attributes) {
+      console.log(attributes);
+    }
+  })
 })

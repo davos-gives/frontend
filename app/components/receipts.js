@@ -1,7 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 
 export default class ReceiptsComponent extends Component {
+  @service notifications;
+
   @tracked search = "";
 
   get filteredDonations() {
@@ -25,6 +29,16 @@ export default class ReceiptsComponent extends Component {
       downloadLink.href = linkSource;
       downloadLink.download = fileName;
       downloadLink.click();
+    })
+  }
+
+  @action
+  resendReceipt(receipt) {
+    receipt.resendReceipt().then(response => {
+      this.notifications.success(`Receipt ${receipt.receiptNumber} sent.`, {
+        autoClear: true,
+        clearDuration: 5000
+      });
     })
   }
 }
