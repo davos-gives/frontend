@@ -12,7 +12,7 @@ export default class CreateOrganizationController extends Controller {
   submit(changeset) {
     if (changeset.isValid) {
       return changeset.save().then((organization) => {
-        window.location = `http://localhost:4000/auth?organization_id=${organization.id}`
+        window.location = `http://staging-api.davos.gives/auth?organization_id=${organization.id}`
       });
     }
   }

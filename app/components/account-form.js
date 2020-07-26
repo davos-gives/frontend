@@ -7,7 +7,6 @@ import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
 
 export default class AccountFormComponent extends Component {
-
   @service notifications;
 
   constructor() {
@@ -55,7 +54,7 @@ export default class AccountFormComponent extends Component {
   reauthenticate() {
     const orgId = this.args.organization.id
     if (this.organization.isValid) {
-      window.location = `http://localhost:4000/auth?organization_id=${orgId}`
+      window.location = `https://staging-api.davos.gives/auth?organization_id=${orgId}`
     }
   }
 }
