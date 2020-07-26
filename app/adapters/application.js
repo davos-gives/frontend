@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 import config from '../config/environment';
 
 export default class ApplicationAdapter extends JSONAPIAdapter {
-  host = config.API_HOST;
+  host = "https://staging-api.davos.gives";
   namespace = 'api/v1';
 
   @service session;
