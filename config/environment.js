@@ -50,7 +50,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.API_HOST = process.env.API_URL;
+    ENV.API_HOST = 'https://staging.davos.gives';
   }
 
   if (environment === 'test') {
