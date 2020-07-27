@@ -1,6 +1,6 @@
 'use strict';
 
-const { MIRAGE_SCENARIO } = process.env;
+const { MIRAGE_SCENARIO, API_URL } = process.env;
 
 module.exports = function (environment) {
   let ENV = {
@@ -37,11 +37,13 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    apiHost: 'http://localhost:4000'
   };
 
+
   if (environment === 'development') {
-    ENV.APP.API_HOST = 'http://localhost:4000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -50,7 +52,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST = 'https://staging-api.davos.gives';
+    ENV.apiHost = API_URL;
   }
 
   if (environment === 'test') {
