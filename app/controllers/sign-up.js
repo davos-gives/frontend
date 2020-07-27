@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 import AccountValidations from '../validations/account';
 import { assign } from '@ember/polyfills';
 import fetch from 'fetch';
+import config from '../config/environment';
 
 export default class SignupController extends Controller {
   AccountValidations = AccountValidations;
@@ -39,7 +40,7 @@ export default class SignupController extends Controller {
   }
 
   makeRequest(data, options = {}) {
-    let url = "/api/v1/registrations";
+    let url = `${config.apiHost}/api/v1/registrations`;
     let requestOptions = {};
     let body = JSON.stringify(data);
     assign(requestOptions, {
