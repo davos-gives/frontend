@@ -60,8 +60,6 @@ export default class ReceiptsNewController extends Controller {
       clearDuration: 5000
     });
 
-
-
     this.router.transitionTo('authenticated.campaigns');
   }
 }

@@ -5,6 +5,11 @@
     <FormInput @value={{@changeset.email}} @field={{"email"}} />
     <FormInput @value={{@changeset.password}} @field={{"password"}} @password={{true}} />
     <FormInput @value={{@changeset.passwordConfirmation}} @field={{"confirm password"}} @password={{true}} />
+    <p class="h-8 text-red-700 font-sm">
+      {{#if @errors}}
+      Problem Creating account.
+      {{/if}}
+    </p>
     <div>
     </div>
     <div class="flex mt-8 pb-6 justify-end">

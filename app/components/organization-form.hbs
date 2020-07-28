@@ -5,12 +5,13 @@
     <SearchInput @value={{@changeset.address}} @field={{"Address"}} @changeset={{@changeset}} />
     <FormInput @value={{@changeset.charitableNumber}} @field={{"Registered Charitable Number"}} />
     <FormInput @value={{@changeset.nationbuilderId}} @field={{"Nation"}} />
-    {{!-- <PowerSelect @options={{this.purpose}} @selected={{@changeset.category}} @searchEnabled={{false}}
-      @onChange={{fn (mut @changeset.category)}}
-      @triggerClass={{"px-4 w-full text-gray-600 input bg-white border-gray-300 py-2 text-sm font mt-2"}}
-      @dropdownClass={{"fonts"}} @placeholder={{"Charitable Purpose"}} as |purpose|>
-      <span class="text-left list-item">{{purpose}}</span>
-    </PowerSelect> --}}
+    <p class="h-8 text-red-700 font-sm">
+      {{#if @errors}}
+      Problem Creating account.
+      {{/if}}
+    </p>
+
+
     <div>
     </div>
     <div class="flex mt-8 pb-6 justify-end">

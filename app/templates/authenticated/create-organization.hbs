@@ -19,7 +19,7 @@
       <div class="flex justify-center">
         {{#with (changeset @model this.CharityValidations) as |changesetObj|}}
         <span {{did-insert this.validate changesetObj}}></span>
-        <OrganizationForm @changeset={{changesetObj}} @submit={{this.submit}} />
+        <OrganizationForm @changeset={{changesetObj}} @submit={{this.submit}} @errors={{this.errorMessage}} />
         {{/with}}
       </div>
     </div>

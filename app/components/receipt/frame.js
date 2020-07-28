@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { DateTime } from 'luxon';
 import { action } from '@ember/object';
+import config from '../../config/environment';
 
 export default class ReceiptFrameComponent extends Component {
 
@@ -91,7 +92,7 @@ export default class ReceiptFrameComponent extends Component {
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <link rel="stylesheet" href="http://localhost:4000/css/app.css"/>
+        <link rel="stylesheet" href="${config.apiHost}/css/app.css"/>
         <script>
           window.addEventListener('message', function(event) {
           event.data.forEach(function(element) {

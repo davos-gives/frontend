@@ -16,8 +16,9 @@
       </div>
       <h1 class="w-1/2 text-center pb-4 font-normal mx-auto py-8 text-purple-900 text-4xl">Login</h1>
       <div class="flex justify-center">
-        {{#with (changeset @model) as |changesetObj|}}
-        <LoginForm @changeset={{changesetObj}} @submit={{fn this.authenticate changesetObj}} />
+        {{#with (changeset @model this.loginValidations) as |changesetObj|}}
+        <LoginForm @changeset={{changesetObj}} @submit={{fn this.authenticate changesetObj}}
+          @errors={{this.errorMessage}} />
         {{/with}}
       </div>
     </div>

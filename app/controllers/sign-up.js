@@ -5,9 +5,12 @@ import AccountValidations from '../validations/account';
 import { assign } from '@ember/polyfills';
 import fetch from 'fetch';
 import config from '../config/environment';
+import { tracked } from "@glimmer/tracking";
 
 export default class SignupController extends Controller {
   AccountValidations = AccountValidations;
+
+  @tracked errorMessage;
 
   @service router;
   @service session;
@@ -29,7 +32,7 @@ export default class SignupController extends Controller {
         await this.session.authenticate('authenticator:oauth2', email, password);
         this.router.transitionTo('authenticated.create-organization');
       } catch (error) {
-        console.log("something has gone terrible wrong!")
+        this.errorMessage = error.error || error;
       }
     }
   }

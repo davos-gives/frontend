@@ -18,7 +18,7 @@
       <div class="flex justify-center">
         {{#with (changeset @model this.AccountValidations) as |changesetObj|}}
         <span {{did-insert this.validate changesetObj}}></span>
-        <SignupForm @changeset={{changesetObj}} @submit={{this.submit}} />
+        <SignupForm @changeset={{changesetObj}} @submit={{this.submit}} @errors={{this.errorMessage}} />
         {{/with}}
       </div>
     </div>
