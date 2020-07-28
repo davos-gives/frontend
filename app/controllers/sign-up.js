@@ -27,7 +27,6 @@ export default class SignupController extends Controller {
         data["password_confirmation"] = passwordConfirmation;
         await this.makeRequest(data)
           .then(response => response.json())
-        //deal with errors!
 
         await this.session.authenticate('authenticator:oauth2', email, password);
         this.router.transitionTo('authenticated.create-organization');
